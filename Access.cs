@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// PUNYA ADYL
+
 namespace KoperasiBadBoy
 {
     public class Access
