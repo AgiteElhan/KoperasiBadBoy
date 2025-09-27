@@ -1,12 +1,11 @@
-﻿using BraveHeroCooperation.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KoperasiBadBoy
+namespace KoperasiBadBoy.Models
 {
     public class Access
     {
