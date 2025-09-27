@@ -13,7 +13,7 @@ namespace BraveHeroCooperation.Models
 
         [Required]
         public int MemberId { get; set; }
-
+         
         public Member Member { get; set; } = null!;
 
         [Required]
