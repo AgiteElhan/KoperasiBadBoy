@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KoperasiBadBoy.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,43 @@ namespace KoperasiBadBoy.Forms
 {
     public partial class AdminForm : Form
     {
+        Member? loggedMember = null;
+
         public AdminForm()
         {
+            loggedMember = member;
             InitializeComponent();
+            this.Text = "Brave Hero Cooperation (Administrator: " +
+                        loggedMember.MemberId + " - " + loggedMember.FullName + ")";
         }
+
+        public void route(System.Windows.Forms.Control control)
+        {
+            this.panelDisplay.Controls.Clear();
+            this.panelDisplay.Dock = DockStyle.Fill;
+            this.panelDisplay.Controls.Add(control);
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            route(new DashboardAdminPage(loggedMember));
+
+        }
+
+        private void accesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            route(new AccessPage(loggedMember));
+        }
+
+        private void productToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            route(new ProductPage());
+        }
+
+        private void approvalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            route(new ApprovalPage(loggedMember));
+        }
+
     }
 }
