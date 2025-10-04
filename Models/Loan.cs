@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KoperasiBadBoy
+namespace KoperasiBadBoy.Models
 {
     public class Loan
     {
