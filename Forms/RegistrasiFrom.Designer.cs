@@ -40,18 +40,20 @@
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox12 = new TextBox();
+            txtPassword = new TextBox();
+            txtPhoneAlt = new TextBox();
+            txtAddress = new TextBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            textBox4 = new TextBox();
-            textBox9 = new TextBox();
-            textBox10 = new TextBox();
-            textBox13 = new TextBox();
-            textBox6 = new TextBox();
-            textBox1 = new TextBox();
-            textBox5 = new TextBox();
-            textBox7 = new TextBox();
+            txtUsername = new TextBox();
+            txtReferenceId = new TextBox();
+            txtQuest2 = new TextBox();
+            txtPhone = new TextBox();
+            txtName = new TextBox();
+            txtCardId = new TextBox();
+            txtEmail = new TextBox();
+            txtQuest1 = new TextBox();
+            btnSubmit = new Button();
+            btnBack = new Button();
             SuspendLayout();
             // 
             // label1
@@ -125,9 +127,10 @@
             label9.AutoSize = true;
             label9.Location = new Point(679, 186);
             label9.Name = "label9";
-            label9.Size = new Size(56, 20);
+            label9.Size = new Size(62, 20);
             label9.TabIndex = 6;
-            label9.Text = "Adders";
+            label9.Text = "Address";
+            label9.Click += label9_Click;
             // 
             // label10
             // 
@@ -157,27 +160,27 @@
             label12.Text = "Phone ALT";
             label12.Click += label12_Click;
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Location = new Point(578, 70);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(258, 27);
-            textBox2.TabIndex = 13;
+            txtPassword.Location = new Point(578, 70);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(258, 27);
+            txtPassword.TabIndex = 13;
             // 
-            // textBox3
+            // txtPhoneAlt
             // 
-            textBox3.Location = new Point(578, 154);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(258, 27);
-            textBox3.TabIndex = 14;
+            txtPhoneAlt.Location = new Point(578, 154);
+            txtPhoneAlt.Name = "txtPhoneAlt";
+            txtPhoneAlt.Size = new Size(258, 27);
+            txtPhoneAlt.TabIndex = 14;
             // 
-            // textBox12
+            // txtAddress
             // 
-            textBox12.Location = new Point(578, 217);
-            textBox12.Multiline = true;
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(258, 117);
-            textBox12.TabIndex = 23;
+            txtAddress.Location = new Point(578, 217);
+            txtAddress.Multiline = true;
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(258, 117);
+            txtAddress.TabIndex = 23;
             // 
             // contextMenuStrip1
             // 
@@ -185,79 +188,102 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
-            // textBox4
+            // txtUsername
             // 
-            textBox4.Location = new Point(299, 70);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(258, 27);
-            textBox4.TabIndex = 25;
+            txtUsername.Location = new Point(299, 70);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(258, 27);
+            txtUsername.TabIndex = 25;
             // 
-            // textBox9
+            // txtReferenceId
             // 
-            textBox9.Location = new Point(299, 217);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(258, 27);
-            textBox9.TabIndex = 26;
-            textBox9.TextChanged += textBox9_TextChanged;
+            txtReferenceId.Location = new Point(299, 217);
+            txtReferenceId.Name = "txtReferenceId";
+            txtReferenceId.Size = new Size(258, 27);
+            txtReferenceId.TabIndex = 26;
+            txtReferenceId.TextChanged += textBox9_TextChanged;
             // 
-            // textBox10
+            // txtQuest2
             // 
-            textBox10.Location = new Point(299, 307);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(258, 27);
-            textBox10.TabIndex = 27;
+            txtQuest2.Location = new Point(299, 307);
+            txtQuest2.Name = "txtQuest2";
+            txtQuest2.Size = new Size(258, 27);
+            txtQuest2.TabIndex = 27;
+            txtQuest2.TextChanged += txtArtis_TextChanged;
             // 
-            // textBox13
+            // txtPhone
             // 
-            textBox13.Location = new Point(299, 154);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(258, 27);
-            textBox13.TabIndex = 28;
+            txtPhone.Location = new Point(299, 154);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(258, 27);
+            txtPhone.TabIndex = 28;
             // 
-            // textBox6
+            // txtName
             // 
-            textBox6.Location = new Point(12, 70);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(258, 27);
-            textBox6.TabIndex = 29;
+            txtName.Location = new Point(12, 70);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(258, 27);
+            txtName.TabIndex = 29;
             // 
-            // textBox1
+            // txtCardId
             // 
-            textBox1.Location = new Point(12, 149);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(258, 27);
-            textBox1.TabIndex = 30;
+            txtCardId.Location = new Point(12, 149);
+            txtCardId.Name = "txtCardId";
+            txtCardId.Size = new Size(258, 27);
+            txtCardId.TabIndex = 30;
             // 
-            // textBox5
+            // txtEmail
             // 
-            textBox5.Location = new Point(12, 217);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(258, 27);
-            textBox5.TabIndex = 31;
+            txtEmail.Location = new Point(12, 217);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(258, 27);
+            txtEmail.TabIndex = 31;
             // 
-            // textBox7
+            // txtQuest1
             // 
-            textBox7.Location = new Point(12, 307);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(258, 27);
-            textBox7.TabIndex = 32;
+            txtQuest1.Location = new Point(12, 307);
+            txtQuest1.Name = "txtQuest1";
+            txtQuest1.Size = new Size(258, 27);
+            txtQuest1.TabIndex = 32;
+            // 
+            // btnSubmit
+            // 
+            btnSubmit.Location = new Point(12, 361);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(126, 29);
+            btnSubmit.TabIndex = 33;
+            btnSubmit.Text = "Subimt";
+            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
+            // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(155, 361);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(106, 29);
+            btnBack.TabIndex = 34;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // RegistrasiFrom
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(860, 450);
-            Controls.Add(textBox7);
-            Controls.Add(textBox5);
-            Controls.Add(textBox1);
-            Controls.Add(textBox6);
-            Controls.Add(textBox13);
-            Controls.Add(textBox10);
-            Controls.Add(textBox9);
-            Controls.Add(textBox4);
-            Controls.Add(textBox12);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
+            Controls.Add(btnBack);
+            Controls.Add(btnSubmit);
+            Controls.Add(txtQuest1);
+            Controls.Add(txtEmail);
+            Controls.Add(txtCardId);
+            Controls.Add(txtName);
+            Controls.Add(txtPhone);
+            Controls.Add(txtQuest2);
+            Controls.Add(txtReferenceId);
+            Controls.Add(txtUsername);
+            Controls.Add(txtAddress);
+            Controls.Add(txtPhoneAlt);
+            Controls.Add(txtPassword);
             Controls.Add(label10);
             Controls.Add(label11);
             Controls.Add(label12);
@@ -289,17 +315,19 @@
         private Label label10;
         private Label label11;
         private Label label12;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox12;
+        private TextBox txtPassword;
+        private TextBox txtPhoneAlt;
+        private TextBox txtAddress;
         private ContextMenuStrip contextMenuStrip1;
-        private TextBox textBox4;
-        private TextBox textBox9;
-        private TextBox textBox10;
-        private TextBox textBox13;
-        private TextBox textBox6;
-        private TextBox textBox1;
-        private TextBox textBox5;
-        private TextBox textBox7;
+        private TextBox txtUsername;
+        private TextBox txtReferenceId;
+        private TextBox txtQuest2;
+        private TextBox txtPhone;
+        private TextBox txtName;
+        private TextBox txtCardId;
+        private TextBox txtEmail;
+        private TextBox txtQuest1;
+        private Button btnSubmit;
+        private Button btnBack;
     }
 }
