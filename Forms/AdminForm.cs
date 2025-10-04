@@ -51,5 +51,26 @@ namespace KoperasiBadBoy.Forms
             route(new ApprovalPage(loggedMember));
         }
 
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                loggedMember = null;
+                this.Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();
+            }
+        }
+
+        private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            route(new ConfigPage());
+
+        }
+
+        private void accrosCooperationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            route(new AcrossPage());
+
+        }
     }
 }

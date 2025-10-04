@@ -30,19 +30,21 @@
         {
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
+            configurationToolStripMenuItem = new ToolStripMenuItem();
+            logoutToolStripMenuItem = new ToolStripMenuItem();
             memberToolStripMenuItem = new ToolStripMenuItem();
             accesToolStripMenuItem = new ToolStripMenuItem();
             productToolStripMenuItem = new ToolStripMenuItem();
             approvalToolStripMenuItem = new ToolStripMenuItem();
-            accesCooperationToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
+            accrosCooperationToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, memberToolStripMenuItem, accesToolStripMenuItem, productToolStripMenuItem, approvalToolStripMenuItem, accesCooperationToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, memberToolStripMenuItem, accesToolStripMenuItem, productToolStripMenuItem, approvalToolStripMenuItem, accrosCooperationToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1098, 33);
@@ -51,9 +53,24 @@
             // 
             // fileToolStripMenuItem
             // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { configurationToolStripMenuItem, logoutToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(54, 29);
             fileToolStripMenuItem.Text = "File";
+            // 
+            // configurationToolStripMenuItem
+            // 
+            configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
+            configurationToolStripMenuItem.Size = new Size(270, 34);
+            configurationToolStripMenuItem.Text = "Configuration";
+            configurationToolStripMenuItem.Click += configurationToolStripMenuItem_Click;
+            // 
+            // logoutToolStripMenuItem
+            // 
+            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            logoutToolStripMenuItem.Size = new Size(270, 34);
+            logoutToolStripMenuItem.Text = "Logout";
+            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // memberToolStripMenuItem
             // 
@@ -82,12 +99,6 @@
             approvalToolStripMenuItem.Text = "Approval";
             approvalToolStripMenuItem.Click += approvalToolStripMenuItem_Click;
             // 
-            // accesCooperationToolStripMenuItem
-            // 
-            accesCooperationToolStripMenuItem.Name = "accesCooperationToolStripMenuItem";
-            accesCooperationToolStripMenuItem.Size = new Size(177, 29);
-            accesCooperationToolStripMenuItem.Text = "Acces Cooperation";
-            // 
             // panel1
             // 
             panel1.Dock = DockStyle.Bottom;
@@ -95,6 +106,13 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1098, 401);
             panel1.TabIndex = 1;
+            // 
+            // accrosCooperationToolStripMenuItem
+            // 
+            accrosCooperationToolStripMenuItem.Name = "accrosCooperationToolStripMenuItem";
+            accrosCooperationToolStripMenuItem.Size = new Size(185, 29);
+            accrosCooperationToolStripMenuItem.Text = "Accros Cooperation";
+            accrosCooperationToolStripMenuItem.Click += accrosCooperationToolStripMenuItem_Click;
             // 
             // AdminForm
             // 
@@ -121,7 +139,9 @@
         private ToolStripMenuItem accesToolStripMenuItem;
         private ToolStripMenuItem productToolStripMenuItem;
         private ToolStripMenuItem approvalToolStripMenuItem;
-        private ToolStripMenuItem accesCooperationToolStripMenuItem;
         private Panel panel1;
+        private ToolStripMenuItem configurationToolStripMenuItem;
+        private ToolStripMenuItem logoutToolStripMenuItem;
+        private ToolStripMenuItem accrosCooperationToolStripMenuItem;
     }
 }

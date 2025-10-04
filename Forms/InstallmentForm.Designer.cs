@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dataGridViewInstallment = new DataGridView();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -38,17 +38,17 @@
             button1 = new Button();
             btnBrowse = new Button();
             btnNewInstallment = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInstallment).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewInstallment
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(360, 426);
-            dataGridView1.TabIndex = 0;
+            dataGridViewInstallment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewInstallment.Location = new Point(12, 12);
+            dataGridViewInstallment.Name = "dataGridViewInstallment";
+            dataGridViewInstallment.RowHeadersWidth = 62;
+            dataGridViewInstallment.Size = new Size(360, 426);
+            dataGridViewInstallment.TabIndex = 0;
             // 
             // label1
             // 
@@ -58,7 +58,6 @@
             label1.Size = new Size(73, 25);
             label1.TabIndex = 1;
             label1.Text = "Loan ID";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -140,18 +139,17 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewInstallment);
             Name = "InstallmentForm";
             Text = "InstallmentForm";
-            Load += InstallmentForm_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInstallment).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewInstallment;
         private Label label1;
         private Label label2;
         private Label label3;
