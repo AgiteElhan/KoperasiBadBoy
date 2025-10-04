@@ -25,7 +25,7 @@ namespace KoperasiBadBoy.Models
         public DateTime ModDate { get; set; }
         public string Status { get; set; }
         public int ReferenceId { get; set; }
-        public string Level { get; set; }
+        public string Level { get; set; } 
 
         [Required, MaxLength(100)] public string Quest1 { get; set; } = null!;
         [Required, MaxLength(100)] public string Quest2 { get; set; } = null!;
