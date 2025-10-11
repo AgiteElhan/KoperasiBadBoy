@@ -114,7 +114,7 @@
             btnBrowse.Name = "btnBrowse";
             btnBrowse.Size = new Size(112, 34);
             btnBrowse.TabIndex = 8;
-            btnBrowse.Text = "Browse";
+            btnBrowse.Text = "Submit";
             btnBrowse.UseVisualStyleBackColor = true;
             // 
             // btnNewInstallment
@@ -143,6 +143,7 @@
             Controls.Add(dataGridViewInstallment);
             Name = "InstallmentForm";
             Text = "InstallmentForm";
+            Load += InstallmentForm_Load_1;
             ((System.ComponentModel.ISupportInitialize)dataGridViewInstallment).EndInit();
             ResumeLayout(false);
             PerformLayout();
