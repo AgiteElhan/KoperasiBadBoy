@@ -94,5 +94,10 @@ namespace KoperasiBadBoy.Forms
             if (e.RowIndex >= 0)
                 FileHelper.ShowFile(dataGridViewInstallment.Rows[e.RowIndex].Cells[3].Value.ToString());
         }
+         
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
