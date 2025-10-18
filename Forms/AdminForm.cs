@@ -51,5 +51,48 @@ namespace KoperasiBadBoy.Forms
             route(new ApprovalPage(loggedMember));
         }
 
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                loggedMember = null;
+                this.Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();
+            }
+        }
+
+        private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            route(new ConfigPage());
+
+        }
+
+        private void accrosCooperationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            route(new AcrossPage());
+
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            route(new DashboardAdminPage(loggedMember));
+
+        }
+
+        private void accesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            route(new AccessPage(loggedMember));
+        }
+
+        private void productToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            route(new ProductPage());
+        }
+
+        private void approvalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            route(new ApprovalPage(loggedMember));
+        }
+
     }
 }
