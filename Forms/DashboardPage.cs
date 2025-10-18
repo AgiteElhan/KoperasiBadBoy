@@ -19,7 +19,7 @@ namespace KoperasiBadBoy.Forms
         {
             loggedMember = member;
             InitializeComponent();
-        }
+        } 
 
         private void DashboardPage_Load(object sender, EventArgs e)
         {
