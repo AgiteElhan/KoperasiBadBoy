@@ -37,6 +37,20 @@
             cbMember = new ComboBox();
             btnSubmit = new Button();
             Detail = new GroupBox();
+            txtAddress = new Label();
+            labelAddress = new Label();
+            txtPhoneAlt = new Label();
+            labelFullName = new Label();
+            txtNoPhone = new Label();
+            labelJoinDate = new Label();
+            txtEmail = new Label();
+            labelEmail = new Label();
+            txtJoinDate = new Label();
+            labelNoPhone = new Label();
+            txtFullName = new Label();
+            labelPhoneAlt = new Label();
+            label11 = new Label();
+            label10 = new Label();
             dgvAccess = new DataGridView();
             txtAccess = new Label();
             LbGrup = new ListBox();
@@ -46,20 +60,6 @@
             cbTransferInhouse = new CheckBox();
             cbTransferAccross = new CheckBox();
             cbExchenge = new CheckBox();
-            labelFullName = new Label();
-            labelJoinDate = new Label();
-            labelEmail = new Label();
-            labelNoPhone = new Label();
-            labelAddress = new Label();
-            labelPhoneAlt = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            txtEmail = new Label();
-            txtJoinDate = new Label();
-            txtFullName = new Label();
-            txtAddress = new Label();
-            txtPhoneAlt = new Label();
-            txtNoPhone = new Label();
             Detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAccess).BeginInit();
             SuspendLayout();
@@ -91,6 +91,7 @@
             btnSubmit.TabIndex = 4;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // Detail
             // 
@@ -115,10 +116,138 @@
             Detail.TabStop = false;
             Detail.Text = "Detail";
             // 
+            // txtAddress
+            // 
+            txtAddress.AutoSize = true;
+            txtAddress.Location = new Point(206, 224);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(15, 20);
+            txtAddress.TabIndex = 30;
+            txtAddress.Text = "-";
+            // 
+            // labelAddress
+            // 
+            labelAddress.AutoSize = true;
+            labelAddress.Location = new Point(60, 224);
+            labelAddress.Name = "labelAddress";
+            labelAddress.Size = new Size(62, 20);
+            labelAddress.TabIndex = 20;
+            labelAddress.Text = "Address";
+            // 
+            // txtPhoneAlt
+            // 
+            txtPhoneAlt.AutoSize = true;
+            txtPhoneAlt.Location = new Point(206, 182);
+            txtPhoneAlt.Name = "txtPhoneAlt";
+            txtPhoneAlt.Size = new Size(15, 20);
+            txtPhoneAlt.TabIndex = 29;
+            txtPhoneAlt.Text = "-";
+            // 
+            // labelFullName
+            // 
+            labelFullName.AutoSize = true;
+            labelFullName.Location = new Point(60, 15);
+            labelFullName.Name = "labelFullName";
+            labelFullName.Size = new Size(76, 20);
+            labelFullName.TabIndex = 16;
+            labelFullName.Text = "Full Name";
+            labelFullName.Click += label3_Click;
+            // 
+            // txtNoPhone
+            // 
+            txtNoPhone.AutoSize = true;
+            txtNoPhone.Location = new Point(206, 142);
+            txtNoPhone.Name = "txtNoPhone";
+            txtNoPhone.Size = new Size(15, 20);
+            txtNoPhone.TabIndex = 28;
+            txtNoPhone.Text = "-";
+            // 
+            // labelJoinDate
+            // 
+            labelJoinDate.AutoSize = true;
+            labelJoinDate.Location = new Point(60, 52);
+            labelJoinDate.Name = "labelJoinDate";
+            labelJoinDate.Size = new Size(71, 20);
+            labelJoinDate.TabIndex = 17;
+            labelJoinDate.Text = "Join Date";
+            labelJoinDate.Click += label4_Click;
+            // 
+            // txtEmail
+            // 
+            txtEmail.AutoSize = true;
+            txtEmail.Location = new Point(206, 93);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(15, 20);
+            txtEmail.TabIndex = 27;
+            txtEmail.Text = "-";
+            // 
+            // labelEmail
+            // 
+            labelEmail.AutoSize = true;
+            labelEmail.Location = new Point(60, 93);
+            labelEmail.Name = "labelEmail";
+            labelEmail.Size = new Size(46, 20);
+            labelEmail.TabIndex = 18;
+            labelEmail.Text = "Email";
+            // 
+            // txtJoinDate
+            // 
+            txtJoinDate.AutoSize = true;
+            txtJoinDate.Location = new Point(206, 52);
+            txtJoinDate.Name = "txtJoinDate";
+            txtJoinDate.Size = new Size(15, 20);
+            txtJoinDate.TabIndex = 26;
+            txtJoinDate.Text = "-";
+            // 
+            // labelNoPhone
+            // 
+            labelNoPhone.AutoSize = true;
+            labelNoPhone.Location = new Point(60, 142);
+            labelNoPhone.Name = "labelNoPhone";
+            labelNoPhone.Size = new Size(74, 20);
+            labelNoPhone.TabIndex = 19;
+            labelNoPhone.Text = "No Phone";
+            // 
+            // txtFullName
+            // 
+            txtFullName.AutoSize = true;
+            txtFullName.Location = new Point(206, 15);
+            txtFullName.Name = "txtFullName";
+            txtFullName.Size = new Size(15, 20);
+            txtFullName.TabIndex = 25;
+            txtFullName.Text = "-";
+            // 
+            // labelPhoneAlt
+            // 
+            labelPhoneAlt.AutoSize = true;
+            labelPhoneAlt.Location = new Point(60, 182);
+            labelPhoneAlt.Name = "labelPhoneAlt";
+            labelPhoneAlt.Size = new Size(73, 20);
+            labelPhoneAlt.TabIndex = 21;
+            labelPhoneAlt.Text = "Phone Alt";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(206, 52);
+            label11.Name = "label11";
+            label11.Size = new Size(15, 20);
+            label11.TabIndex = 24;
+            label11.Text = "-";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(206, 52);
+            label10.Name = "label10";
+            label10.Size = new Size(15, 20);
+            label10.TabIndex = 23;
+            label10.Text = "-";
+            // 
             // dgvAccess
             // 
             dgvAccess.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAccess.Location = new Point(449, 104);
+            dgvAccess.Location = new Point(449, 111);
             dgvAccess.Name = "dgvAccess";
             dgvAccess.RowHeadersWidth = 51;
             dgvAccess.Size = new Size(651, 499);
@@ -205,134 +334,6 @@
             cbExchenge.UseVisualStyleBackColor = true;
             cbExchenge.CheckedChanged += checkBox6_CheckedChanged;
             // 
-            // labelFullName
-            // 
-            labelFullName.AutoSize = true;
-            labelFullName.Location = new Point(60, 15);
-            labelFullName.Name = "labelFullName";
-            labelFullName.Size = new Size(76, 20);
-            labelFullName.TabIndex = 16;
-            labelFullName.Text = "Full Name";
-            labelFullName.Click += label3_Click;
-            // 
-            // labelJoinDate
-            // 
-            labelJoinDate.AutoSize = true;
-            labelJoinDate.Location = new Point(60, 52);
-            labelJoinDate.Name = "labelJoinDate";
-            labelJoinDate.Size = new Size(71, 20);
-            labelJoinDate.TabIndex = 17;
-            labelJoinDate.Text = "Join Date";
-            labelJoinDate.Click += label4_Click;
-            // 
-            // labelEmail
-            // 
-            labelEmail.AutoSize = true;
-            labelEmail.Location = new Point(60, 93);
-            labelEmail.Name = "labelEmail";
-            labelEmail.Size = new Size(46, 20);
-            labelEmail.TabIndex = 18;
-            labelEmail.Text = "Email";
-            // 
-            // labelNoPhone
-            // 
-            labelNoPhone.AutoSize = true;
-            labelNoPhone.Location = new Point(60, 142);
-            labelNoPhone.Name = "labelNoPhone";
-            labelNoPhone.Size = new Size(74, 20);
-            labelNoPhone.TabIndex = 19;
-            labelNoPhone.Text = "No Phone";
-            // 
-            // labelAddress
-            // 
-            labelAddress.AutoSize = true;
-            labelAddress.Location = new Point(60, 224);
-            labelAddress.Name = "labelAddress";
-            labelAddress.Size = new Size(62, 20);
-            labelAddress.TabIndex = 20;
-            labelAddress.Text = "Address";
-            // 
-            // labelPhoneAlt
-            // 
-            labelPhoneAlt.AutoSize = true;
-            labelPhoneAlt.Location = new Point(60, 182);
-            labelPhoneAlt.Name = "labelPhoneAlt";
-            labelPhoneAlt.Size = new Size(73, 20);
-            labelPhoneAlt.TabIndex = 21;
-            labelPhoneAlt.Text = "Phone Alt";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(206, 52);
-            label10.Name = "label10";
-            label10.Size = new Size(15, 20);
-            label10.TabIndex = 23;
-            label10.Text = "-";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(206, 52);
-            label11.Name = "label11";
-            label11.Size = new Size(15, 20);
-            label11.TabIndex = 24;
-            label11.Text = "-";
-            // 
-            // txtEmail
-            // 
-            txtEmail.AutoSize = true;
-            txtEmail.Location = new Point(206, 93);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(15, 20);
-            txtEmail.TabIndex = 27;
-            txtEmail.Text = "-";
-            // 
-            // txtJoinDate
-            // 
-            txtJoinDate.AutoSize = true;
-            txtJoinDate.Location = new Point(206, 52);
-            txtJoinDate.Name = "txtJoinDate";
-            txtJoinDate.Size = new Size(15, 20);
-            txtJoinDate.TabIndex = 26;
-            txtJoinDate.Text = "-";
-            // 
-            // txtFullName
-            // 
-            txtFullName.AutoSize = true;
-            txtFullName.Location = new Point(206, 15);
-            txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(15, 20);
-            txtFullName.TabIndex = 25;
-            txtFullName.Text = "-";
-            // 
-            // txtAddress
-            // 
-            txtAddress.AutoSize = true;
-            txtAddress.Location = new Point(206, 224);
-            txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(15, 20);
-            txtAddress.TabIndex = 30;
-            txtAddress.Text = "-";
-            // 
-            // txtPhoneAlt
-            // 
-            txtPhoneAlt.AutoSize = true;
-            txtPhoneAlt.Location = new Point(206, 182);
-            txtPhoneAlt.Name = "txtPhoneAlt";
-            txtPhoneAlt.Size = new Size(15, 20);
-            txtPhoneAlt.TabIndex = 29;
-            txtPhoneAlt.Text = "-";
-            // 
-            // txtNoPhone
-            // 
-            txtNoPhone.AutoSize = true;
-            txtNoPhone.Location = new Point(206, 142);
-            txtNoPhone.Name = "txtNoPhone";
-            txtNoPhone.Size = new Size(15, 20);
-            txtNoPhone.TabIndex = 28;
-            txtNoPhone.Text = "-";
-            // 
             // AccessPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -352,7 +353,7 @@
             Controls.Add(txtMember);
             Name = "AccessPage";
             Size = new Size(1292, 689);
-            Load += this.AccessPage_Load;
+            Load += AccessPage_Load;
             Detail.ResumeLayout(false);
             Detail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAccess).EndInit();
