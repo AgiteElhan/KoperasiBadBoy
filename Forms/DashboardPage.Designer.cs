@@ -35,18 +35,18 @@
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
             panel1 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
+            lbl1 = new Label();
+            lbl2 = new Label();
+            lbl3 = new Label();
+            lbl4 = new Label();
+            lbl5 = new Label();
+            lbl6 = new Label();
+            lblBalance = new Label();
+            lblLoan = new Label();
+            lblSaving = new Label();
+            lblExchange = new Label();
+            lblAccrossTransactions = new Label();
+            lblInhouseTransactions = new Label();
             label13 = new Label();
             label14 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -65,7 +65,7 @@
             pictureBox1.Size = new Size(184, 99);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            //pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox2
             // 
@@ -119,127 +119,127 @@
             panel1.Size = new Size(633, 66);
             panel1.TabIndex = 6;
             // 
-            // label1
+            // lbl1
             // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.ActiveCaption;
-            label1.Location = new Point(37, 115);
-            label1.Name = "label1";
-            label1.Size = new Size(71, 25);
-            label1.TabIndex = 7;
-            label1.Text = "Balance";
-            label1.Click += label1_Click;
+            lbl1.AutoSize = true;
+            lbl1.BackColor = SystemColors.ActiveCaption;
+            lbl1.Location = new Point(37, 115);
+            lbl1.Name = "lbl1";
+            lbl1.Size = new Size(71, 25);
+            lbl1.TabIndex = 7;
+            lbl1.Text = "Balance";
+            //lbl1.Click += label1_Click;
             // 
-            // label2
+            // lbl2
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(192, 192, 0);
-            label2.Location = new Point(260, 115);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 25);
-            label2.TabIndex = 8;
-            label2.Text = "Loan";
+            lbl2.AutoSize = true;
+            lbl2.BackColor = Color.FromArgb(192, 192, 0);
+            lbl2.Location = new Point(260, 115);
+            lbl2.Name = "lbl2";
+            lbl2.Size = new Size(50, 25);
+            lbl2.TabIndex = 8;
+            lbl2.Text = "Loan";
             // 
-            // label3
+            // lbl3
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Silver;
-            label3.Location = new Point(485, 115);
-            label3.Name = "label3";
-            label3.Size = new Size(65, 25);
-            label3.TabIndex = 9;
-            label3.Text = "Saving";
+            lbl3.AutoSize = true;
+            lbl3.BackColor = Color.Silver;
+            lbl3.Location = new Point(485, 115);
+            lbl3.Name = "lbl3";
+            lbl3.Size = new Size(65, 25);
+            lbl3.TabIndex = 9;
+            lbl3.Text = "Saving";
             // 
-            // label4
+            // lbl4
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.HotPink;
-            label4.Location = new Point(485, 255);
-            label4.Name = "label4";
-            label4.Size = new Size(86, 25);
-            label4.TabIndex = 10;
-            label4.Text = "Exchange";
+            lbl4.AutoSize = true;
+            lbl4.BackColor = Color.HotPink;
+            lbl4.Location = new Point(485, 255);
+            lbl4.Name = "lbl4";
+            lbl4.Size = new Size(86, 25);
+            lbl4.TabIndex = 10;
+            lbl4.Text = "Exchange";
             // 
-            // label5
+            // lbl5
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Orange;
-            label5.Location = new Point(260, 255);
-            label5.Name = "label5";
-            label5.Size = new Size(65, 25);
-            label5.TabIndex = 11;
-            label5.Text = "Accros";
+            lbl5.AutoSize = true;
+            lbl5.BackColor = Color.Orange;
+            lbl5.Location = new Point(260, 255);
+            lbl5.Name = "lbl5";
+            lbl5.Size = new Size(65, 25);
+            lbl5.TabIndex = 11;
+            lbl5.Text = "Accros";
             // 
-            // label6
+            // lbl6
             // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.LightSkyBlue;
-            label6.Location = new Point(37, 255);
-            label6.Name = "label6";
-            label6.Size = new Size(75, 25);
-            label6.TabIndex = 12;
-            label6.Text = "Inhouse";
-            label6.Click += label6_Click;
+            lbl6.AutoSize = true;
+            lbl6.BackColor = Color.LightSkyBlue;
+            lbl6.Location = new Point(37, 255);
+            lbl6.Name = "lbl6";
+            lbl6.Size = new Size(75, 25);
+            lbl6.TabIndex = 12;
+            lbl6.Text = "Inhouse";
+            //lbl6.Click += label6_Click;
             // 
-            // label7
+            // lblBalance
             // 
-            label7.AutoSize = true;
-            label7.BackColor = SystemColors.ActiveCaption;
-            label7.Location = new Point(179, 176);
-            label7.Name = "label7";
-            label7.Size = new Size(22, 25);
-            label7.TabIndex = 13;
-            label7.Text = "0";
+            lblBalance.AutoSize = true;
+            lblBalance.BackColor = SystemColors.ActiveCaption;
+            lblBalance.Location = new Point(179, 176);
+            lblBalance.Name = "lblBalance";
+            lblBalance.Size = new Size(22, 25);
+            lblBalance.TabIndex = 13;
+            lblBalance.Text = "0";
             // 
-            // label8
+            // lblLoan
             // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.FromArgb(192, 192, 0);
-            label8.Location = new Point(400, 176);
-            label8.Name = "label8";
-            label8.Size = new Size(22, 25);
-            label8.TabIndex = 14;
-            label8.Text = "0";
+            lblLoan.AutoSize = true;
+            lblLoan.BackColor = Color.FromArgb(192, 192, 0);
+            lblLoan.Location = new Point(400, 176);
+            lblLoan.Name = "lblLoan";
+            lblLoan.Size = new Size(22, 25);
+            lblLoan.TabIndex = 14;
+            lblLoan.Text = "0";
             // 
-            // label9
+            // lblSaving
             // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Silver;
-            label9.Location = new Point(625, 176);
-            label9.Name = "label9";
-            label9.Size = new Size(22, 25);
-            label9.TabIndex = 15;
-            label9.Text = "0";
+            lblSaving.AutoSize = true;
+            lblSaving.BackColor = Color.Silver;
+            lblSaving.Location = new Point(625, 176);
+            lblSaving.Name = "lblSaving";
+            lblSaving.Size = new Size(22, 25);
+            lblSaving.TabIndex = 15;
+            lblSaving.Text = "0";
             // 
-            // label10
+            // lblExchange
             // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.HotPink;
-            label10.Location = new Point(625, 308);
-            label10.Name = "label10";
-            label10.Size = new Size(22, 25);
-            label10.TabIndex = 16;
-            label10.Text = "0";
+            lblExchange.AutoSize = true;
+            lblExchange.BackColor = Color.HotPink;
+            lblExchange.Location = new Point(625, 308);
+            lblExchange.Name = "lblExchange";
+            lblExchange.Size = new Size(22, 25);
+            lblExchange.TabIndex = 16;
+            lblExchange.Text = "0";
             // 
-            // label11
+            // lblAccrossTransactions
             // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.Orange;
-            label11.Location = new Point(400, 308);
-            label11.Name = "label11";
-            label11.Size = new Size(22, 25);
-            label11.TabIndex = 17;
-            label11.Text = "0";
+            lblAccrossTransactions.AutoSize = true;
+            lblAccrossTransactions.BackColor = Color.Orange;
+            lblAccrossTransactions.Location = new Point(400, 308);
+            lblAccrossTransactions.Name = "lblAccrossTransactions";
+            lblAccrossTransactions.Size = new Size(22, 25);
+            lblAccrossTransactions.TabIndex = 17;
+            lblAccrossTransactions.Text = "0";
             // 
-            // label12
+            // lblInhouseTransactions
             // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.LightSkyBlue;
-            label12.Location = new Point(179, 308);
-            label12.Name = "label12";
-            label12.Size = new Size(22, 25);
-            label12.TabIndex = 18;
-            label12.Text = "0";
+            lblInhouseTransactions.AutoSize = true;
+            lblInhouseTransactions.BackColor = Color.LightSkyBlue;
+            lblInhouseTransactions.Location = new Point(179, 308);
+            lblInhouseTransactions.Name = "lblInhouseTransactions";
+            lblInhouseTransactions.Size = new Size(22, 25);
+            lblInhouseTransactions.TabIndex = 18;
+            lblInhouseTransactions.Text = "0";
             // 
             // label13
             // 
@@ -267,18 +267,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label14);
             Controls.Add(label13);
-            Controls.Add(label12);
-            Controls.Add(label11);
-            Controls.Add(label10);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblInhouseTransactions);
+            Controls.Add(lblAccrossTransactions);
+            Controls.Add(lblExchange);
+            Controls.Add(lblSaving);
+            Controls.Add(lblLoan);
+            Controls.Add(lblBalance);
+            Controls.Add(lbl6);
+            Controls.Add(lbl5);
+            Controls.Add(lbl4);
+            Controls.Add(lbl3);
+            Controls.Add(lbl2);
+            Controls.Add(lbl1);
             Controls.Add(panel1);
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
@@ -288,6 +288,7 @@
             Controls.Add(pictureBox1);
             Name = "DashboardPage";
             Size = new Size(686, 403);
+            Load += DashboardPage_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -307,18 +308,18 @@
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
         private Panel panel1;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private Label label11;
-        private Label label12;
+        private Label lbl1;
+        private Label lbl2;
+        private Label lbl3;
+        private Label lbl4;
+        private Label lbl5;
+        private Label lbl6;
+        private Label lblBalance;
+        private Label lblLoan;
+        private Label lblSaving;
+        private Label lblExchange;
+        private Label lblAccrossTransactions;
+        private Label lblInhouseTransactions;
         private Label label13;
         private Label label14;
     }

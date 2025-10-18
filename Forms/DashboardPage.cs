@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KoperasiBadBoy.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,24 +13,17 @@ namespace KoperasiBadBoy.Forms
 {
     public partial class DashboardPage : UserControl
     {
-        public DashboardPage()
+        private Member loggedMember;
+
+        public DashboardPage(Member member)
         {
+            loggedMember = member;
             InitializeComponent();
-        }
+        } 
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void DashboardPage_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
+            AppDbContext db = new AppDbContext();
         }
     }
 }
