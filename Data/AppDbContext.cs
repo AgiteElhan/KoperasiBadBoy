@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using KoperasiBadBoy.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Config;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace KoperasiBadBoy.Data
@@ -10,9 +10,9 @@ namespace KoperasiBadBoy.Data
     {
         public DbSet<Member> Members => Set<Member>();
         public DbSet<Access> Accesses => Set<Access>();
-        public DbSet<Configuration> Configurations => Set<Configuration>();
-        public DbSet<LoanMaster> LoanMasters => Set<LoanMaster>();
-        public DbSet<SavingMaster> SavingMasters => Set<SavingMaster>();
+        public DbSet<Config> Configs => Set<Config>();
+        public DbSet<Loanmaster> Loanmasters => Set<Loanmaster>();
+        public DbSet<Savingmaster> Savingmasters => Set<Savingmaster>();
         public DbSet<Loan> Loans => Set<Loan>();
         public DbSet<Installment> Installments => Set<Installment>();
         public DbSet<Saving> Savings => Set<Saving>();
@@ -22,7 +22,7 @@ namespace KoperasiBadBoy.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var config = new ConfigurationBuilder()
+            var config = new ConfigBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("appsettings.json")
                 .Build();
