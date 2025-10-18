@@ -195,6 +195,7 @@
             btnApplyLoan.TabIndex = 13;
             btnApplyLoan.Text = "Apply Loan";
             btnApplyLoan.UseVisualStyleBackColor = false;
+            btnApplyLoan.Click += btnApplyLoan_Click;
             // 
             // btnShowSlipGaji
             // 
@@ -215,6 +216,7 @@
             btnBrowseKK.TabIndex = 15;
             btnBrowseKK.Text = "Browse";
             btnBrowseKK.UseVisualStyleBackColor = false;
+            btnBrowseKK.Click += btnBrowseKK_Click;
             // 
             // btnBrowseKTP
             // 
@@ -225,6 +227,7 @@
             btnBrowseKTP.TabIndex = 16;
             btnBrowseKTP.Text = "Browse";
             btnBrowseKTP.UseVisualStyleBackColor = false;
+            btnBrowseKTP.Click += btnBrowseKTP_Click;
             // 
             // btnBrowseSlipGaji
             // 
@@ -235,6 +238,7 @@
             btnBrowseSlipGaji.TabIndex = 17;
             btnBrowseSlipGaji.Text = "Browse";
             btnBrowseSlipGaji.UseVisualStyleBackColor = false;
+            btnBrowseSlipGaji.Click += btnBrowseSlipGaji_Click;
             // 
             // btnShowKK
             // 
@@ -265,6 +269,7 @@
             btnNewLoan.TabIndex = 20;
             btnNewLoan.Text = "New Loan";
             btnNewLoan.UseVisualStyleBackColor = false;
+            btnNewLoan.Click += btnNewLoan_Click;
             // 
             // txtLoanID
             // 
@@ -357,6 +362,7 @@
             cmbLoanType.Name = "cmbLoanType";
             cmbLoanType.Size = new Size(273, 33);
             cmbLoanType.TabIndex = 33;
+            cmbLoanType.SelectedIndexChanged += cmbLoanType_SelectedIndexChanged;
             // 
             // dgvLoan
             // 
@@ -366,6 +372,7 @@
             dgvLoan.RowHeadersWidth = 62;
             dgvLoan.Size = new Size(658, 530);
             dgvLoan.TabIndex = 34;
+            dgvLoan.CellContentClick += dgvLoan_CellContentClick;
             // 
             // label14
             // 
@@ -385,6 +392,7 @@
             btnReload.TabIndex = 36;
             btnReload.Text = "Reload";
             btnReload.UseVisualStyleBackColor = false;
+            btnReload.Click += btnReload_Click;
             // 
             // labelID
             // 
@@ -439,6 +447,7 @@
             Controls.Add(label1);
             Name = "LoanPage";
             Size = new Size(1344, 769);
+            Load += LoanPage_Load;
             ((System.ComponentModel.ISupportInitialize)dgvLoan).EndInit();
             ResumeLayout(false);
             PerformLayout();
