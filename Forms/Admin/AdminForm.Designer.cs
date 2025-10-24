@@ -83,21 +83,21 @@
             accesToolStripMenuItem.Name = "accesToolStripMenuItem";
             accesToolStripMenuItem.Size = new Size(73, 29);
             accesToolStripMenuItem.Text = "Acces";
-            accesToolStripMenuItem.Click += accesToolStripMenuItem_Click;
+            //accesToolStripMenuItem.Click += accesToolStripMenuItem_Click;
             // 
             // productToolStripMenuItem
             // 
             productToolStripMenuItem.Name = "productToolStripMenuItem";
             productToolStripMenuItem.Size = new Size(90, 29);
             productToolStripMenuItem.Text = "Product";
-            productToolStripMenuItem.Click += productToolStripMenuItem_Click;
+            //productToolStripMenuItem.Click += productToolStripMenuItem_Click;
             // 
             // approvalToolStripMenuItem
             // 
             approvalToolStripMenuItem.Name = "approvalToolStripMenuItem";
             approvalToolStripMenuItem.Size = new Size(101, 29);
             approvalToolStripMenuItem.Text = "Approval";
-            approvalToolStripMenuItem.Click += approvalToolStripMenuItem_Click;
+            //approvalToolStripMenuItem.Click += approvalToolStripMenuItem_Click;
             // 
             // panel1
             // 
@@ -124,7 +124,7 @@
             MainMenuStrip = menuStrip1;
             Name = "AdminForm";
             Text = "AdminForm";
-            Load += AdminForm_Load;
+            //Load += AdminForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

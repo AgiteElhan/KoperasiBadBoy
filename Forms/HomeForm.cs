@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace KoperasiBadBoy.Forms
 {
-    public partial class DashboardAdminPage : UserControl
+    public partial class HomeForm : Form
     {
-        public DashboardAdminPage()
+        public HomeForm()
         {
             InitializeComponent();
-        }
-
-        private void DashboardAdminPage_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
