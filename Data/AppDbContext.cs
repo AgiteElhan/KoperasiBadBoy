@@ -10,7 +10,7 @@ namespace KoperasiBadBoy.Data
     {
         public DbSet<Member> Members => Set<Member>();
         public DbSet<Access> Accesses => Set<Access>();
-        public DbSet<Config> Configs => Set<Config>();
+        public DbSet<Configuration> Configs => Set<Configuration>();
         public DbSet<Loanmaster> Loanmasters => Set<Loanmaster>();
         public DbSet<Savingmaster> Savingmasters => Set<Savingmaster>();
         public DbSet<Loan> Loans => Set<Loan>();
