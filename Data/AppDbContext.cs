@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using KoperasiBadBoy.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Config;
+using Microsoft.Extensions.Configuration;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace KoperasiBadBoy.Data
@@ -22,11 +22,12 @@ namespace KoperasiBadBoy.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var config = new ConfigBuilder()
+            /* var config = new ConfigurationBuilder();
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("appsettings.json")
                 .Build();
-            optionsBuilder.UseNpgsql(config.GetConnectionString("Default"));
+            optionsBuilder.UseNpgsql(config.GetConnectionString("Default")); */
+            optionsBuilder.UseNpgsql("Host=localhost;Database=koperasibadboy;Username=postgres;Password=yourpassword");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
