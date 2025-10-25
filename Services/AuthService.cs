@@ -53,7 +53,7 @@ namespace KoperasiBadBoy.Services
                 Phone = phone,
                 PhoneAlt = phoneAlt,
                 IdCard = cardId,
-                ReferenceId = referenceId,
+                ReferenceId = int.Parse(referenceId),
                 IsActive = true,
                 Level = "public",
                 Status = "public",
@@ -71,7 +71,7 @@ namespace KoperasiBadBoy.Services
                 x.Quest1 == quest1.Trim() && x.Quest2 == quest2.Trim());
             if (user != null)
             {
-                string password = RandomNumberGenerator.GetString(6,false);
+                string password = RandomNumberGenerator.GetHexString(6, false);
                 var hash = BCrypt.Net.BCrypt.HashPassword(password);
                 user.PasswordHash = hash;
                 _db.Members.Update(user);
