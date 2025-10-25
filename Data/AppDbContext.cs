@@ -33,7 +33,7 @@ namespace KoperasiBadBoy.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Loan>()
-                .HasOne(l => l.Member)
+                .HasOne(l => l.Member) 
                 .WithMany(m => m.Loans)
                 .HasForeignKey(l => l.MemberId);
 
