@@ -27,7 +27,7 @@ namespace KoperasiBadBoy.Data
                 .AddJsonFile("appsettings.json")
                 .Build();
             optionsBuilder.UseNpgsql(config.GetConnectionString("Default")); */
-            optionsBuilder.UseNpgsql("Host=localhost;Database=koperasibadboy;Username=postgres;Password=yourpassword");
+            optionsBuilder.UseNpgsql("Host=localhost;Database=vb2_badboy;Username=postgres;Password=yourpassword");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
