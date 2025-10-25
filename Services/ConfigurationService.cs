@@ -1,4 +1,5 @@
 ﻿using KoperasiBadBoy.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace KoperasiBadBoy.Services
 
         public async Task<Configuration?> GetConfig()
         {
-            var config = await _db.Configurations.FirstOrDefaultAsync(x => x.Id == 1);
+            var config = await _db.Configs.FirstOrDefaultAsync(x => x.Id == 1);
+
             return config;
         }
 
@@ -23,7 +25,7 @@ namespace KoperasiBadBoy.Services
             decimal accrossFee)
         {
             bool isNew = false;
-            var config = await _db.Configurations.FirstOrDefaultAsync(x => x.Id == 1);
+            var config = await _db.Configs.FirstOrDefaultAsync(x => x.Id == 1);
             if (config == null)
             {
                 isNew = true;

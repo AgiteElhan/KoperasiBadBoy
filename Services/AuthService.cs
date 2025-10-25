@@ -1,5 +1,6 @@
 ﻿using KoperasiBadBoy.Data;
 using KoperasiBadBoy.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,7 +71,7 @@ namespace KoperasiBadBoy.Services
                 x.Quest1 == quest1.Trim() && x.Quest2 == quest2.Trim());
             if (user != null)
             {
-                string password = RandomNumberGenerator.GetString(6, false);
+                string password = RandomNumberGenerator.GetString(6,false);
                 var hash = BCrypt.Net.BCrypt.HashPassword(password);
                 user.PasswordHash = hash;
                 _db.Members.Update(user);
