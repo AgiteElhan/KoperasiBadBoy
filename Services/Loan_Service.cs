@@ -133,7 +133,7 @@ namespace KoperasiBadBoy.Services
             {
                 if (todaysDate > l.DueDate)
                 {
-                    l.Fine = (l.Amount * l.InterestFine) + l.Fine;
+                    l.Fine = (l.Amount * l.InterestFine) + l.Fine; 
                     l.TotalAmount += l.Fine;
                 }
 
