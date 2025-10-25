@@ -1,5 +1,6 @@
 ﻿using KoperasiBadBoy.Data;
 using KoperasiBadBoy.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,12 @@ namespace KoperasiBadBoy.Services
     public class AccesService
     {
         private readonly AppDbContext _db;
-        public AccessService(AppDbContext db) => _db = db;
+        public AccesService(AppDbContext db) => _db = db;
 
         public async Task<Access?> GetAccess(int memberId)
         {
             var access = await _db.Accesses.FirstOrDefaultAsync(x => x.MemberId == memberId);
+         
             return access;
         }
 
@@ -40,7 +42,7 @@ namespace KoperasiBadBoy.Services
         public async Task update(Access access, string accessList)
         {
             access.AccessList = accessList;
-            access.updateOn = DateTime.UtcNow;
+            access.UpdateOn = DateTime.UtcNow;
             _db.Update(access);
             await _db.SaveChangesAsync();
         }
