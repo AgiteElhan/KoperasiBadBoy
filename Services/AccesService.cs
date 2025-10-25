@@ -29,7 +29,7 @@ namespace KoperasiBadBoy.Services
                     x.Id,
                     DisplayMember = x.Member.MemberId + "." + x.Member.FullName,
                     x.AccessList,
-                    x.updateOn
+                    x.UpdateOn
                 }).ToList();
             return grid;
         }
@@ -54,7 +54,7 @@ namespace KoperasiBadBoy.Services
                 Member = member,
                 AccessList = accessList,
                 MemberId = member.Id,
-                updateOn = DateTime.UtcNow
+                UpdateOn = DateTime.UtcNow
             };
             _db.Add(a);
             await _db.SaveChangesAsync();

@@ -1,5 +1,6 @@
 ﻿using KoperasiBadBoy.Data;
 using KoperasiBadBoy.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace KoperasiBadBoy.Services
         public async Task<Loan?> findById(int id)
         {
             return await _db.Loans.FirstOrDefaultAsync(x => x.Id == id);
+
         }
 
         public async Task<List<Installment>> LoadInstallmentsGrid(int loanId)
