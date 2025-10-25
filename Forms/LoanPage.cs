@@ -121,38 +121,38 @@ namespace KoperasiBadBoy.Forms
 
         private void ResetField()
         {
-            textBoxKk.Text = "";
-            textBoxKtp.Text = "";
-            textBoxSlip.Text = "";
-            textBoxDueDate.Text = "";
-            textBoxInterest.Text = "";
-            textBoxTenor.Text = "";
-            textBoxFine.Text = "";
-            textBoxMinAmount.Text = "";
-            textBoxMaxAmount.Text = "";
-            textBoxLoanId.Text = RandomNumberGenerator.GetString("1234567890", 6);
+            txtDocumentKK.Text = "";
+            txtDocumenKTP.Text = "";
+            txtDocumentSlipGaji.Text = "";
+            txtDueDate.Text = "";
+            txtInterest.Text = "";
+            txtTenor.Text = "";
+            txtInterestFine.Text = "";
+            txtMinAmount.Text = "";
+            txtMaxAmount.Text = "";
+            txtLoanID.Text = RandomNumberGenerator.GetString("1234567890", 6);
             labelId.Text = "";
         }
         private async void LoadLoanGrid(AppDbContext db)
         {
             LoanService loanService = new LoanService(db);
-            dataGridViewLoan.DataSource = await loanService.LoadLoanGrid(loggedMember.Id);
-            dataGridViewLoan.Columns[0].DataPropertyName = "Id";
-            dataGridViewLoan.Columns[1].DataPropertyName = "LoanId";
-            dataGridViewLoan.Columns[2].DataPropertyName = "Outstanding";
-            dataGridViewLoan.Columns[3].DataPropertyName = "ErrorLeft";
+            dgvLoan.DataSource = await loanService.LoadLoanGrid(loggedMember.Id);
+            dgvLoan.Columns[0].DataPropertyName = "Id";
+            dgvLoan.Columns[1].DataPropertyName = "LoanId";
+            dgvLoan.Columns[2].DataPropertyName = "Outstanding";
+            dgvLoan.Columns[3].DataPropertyName = "ErrorLeft";
 
-            dataGridViewLoan.Columns[0].Visible = false;
-            dataGridViewLoan.Columns[1].HeaderText = "Loan ID";
-            dataGridViewLoan.Columns[2].HeaderText = "Outstanding";
-            dataGridViewLoan.Columns[3].HeaderText = "Error Left";
+            dgvLoan.Columns[0].Visible = false;
+            dgvLoan.Columns[1].HeaderText = "Loan ID";
+            dgvLoan.Columns[2].HeaderText = "Outstanding";
+            dgvLoan.Columns[3].HeaderText = "Error Left";
         }
 
         private void dgvLoan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                int id = int.Parse(dataGridViewLoan.Rows[e.RowIndex].Cells[0].Value.ToString());
+                int id = int.Parse(dgvLoan.Rows[e.RowIndex].Cells[0].Value.ToString());
                 AppDbContext db = new AppDbContext();
                 LoanService loanService = new LoanService(db);
                 Loan? loan = await loanService.FindLoanById(id);
@@ -162,18 +162,18 @@ namespace KoperasiBadBoy.Forms
                     if (loan.IsApproved)
                     {
                         SetChosenField();
-                        textBoxKk.Text = loan.KkPath;
-                        textBoxKtp.Text = loan.KtpPath;
-                        textBoxSlip.Text = loan.SlipGajiPath;
-                        textBoxDueDate.Text = loan.DueDate.ToString();
-                        textBoxInterest.Text = loan.Interest.ToString();
-                        textBoxTenor.Text = loan.Tenor.ToString();
-                        textBoxFine.Text = loan.Fine.ToString();
-                        textBoxMinAmount.Text = loan.MinAmount.ToString();
-                        textBoxMaxAmount.Text = loan.MaxAmount.ToString();
+                        txtDocumentKK.Text = loan.KkPath;
+                        txtDocumenKTP.Text = loan.KtpPath;
+                        txtDocumentSlipGaji.Text = loan.SlipGajiPath;
+                        txtDueDate.Text = loan.DueDate.ToString();
+                        txtInterest.Text = loan.Interest.ToString();
+                        txtTenor.Text = loan.Tenor.ToString();
+                        txtInterestFine.Text = loan.Fine.ToString();
+                        txtMinAmount.Text = loan.MinAmount.ToString();
+                        txtMaxAmount.Text = loan.MaxAmount.ToString();
                         labelId.Text = loan.Id.ToString();
-                        comboLoanMaster.SelectedIndex = 0;
-                        comboLoanMaster.Enabled = false;
+                        cmbLoanType.SelectedIndex = 0;
+                        cmbLoanType.Enabled = false;
 
                         if (installmentForm == null)
                         {
@@ -182,7 +182,7 @@ namespace KoperasiBadBoy.Forms
                             installmentForm.Show();
                         }
 
-                        buttonApply.Enabled = false;
+                        btnApplyLoan.Enabled = false;
                     }
                     else
                     {
@@ -201,19 +201,19 @@ namespace KoperasiBadBoy.Forms
         {
             ResetDropDown();
 
-            if (comboLoanMaster.SelectedIndex > 0)
+            if (cmbLoanType.SelectedIndex > 0)
             {
-                int idLoanMaster = int.Parse(comboLoanMaster.SelectedValue.ToString());
+                int idLoanMaster = int.Parse(cmbLoanType.SelectedValue.ToString());
                 AppDbContext db = new AppDbContext();
                 ProductService productService = new ProductService(db);
                 LoanMaster? loanMaster = await productService.FindLoanById(idLoanMaster);
                 if (loanMaster != null)
                 {
-                    textBoxInterest.Text = loanMaster.Interest.ToString();
-                    textBoxFine.Text = loanMaster.Fine.ToString();
-                    textBoxTenor.Text = loanMaster.Tenor.ToString();
-                    textBoxMinAmount.Text = loanMaster.MinAmount.ToString();
-                    textBoxMaxAmount.Text = loanMaster.MaxAmount.ToString();
+                    txtInterest.Text = loanMaster.Interest.ToString();
+                    txtInterestFine.Text = loanMaster.Fine.ToString();
+                    txtTenor.Text = loanMaster.Tenor.ToString();
+                    txtMinAmount.Text = loanMaster.MinAmount.ToString();
+                    txtMaxAmount.Text = loanMaster.MaxAmount.ToString();
                 }
                 else
                 {
