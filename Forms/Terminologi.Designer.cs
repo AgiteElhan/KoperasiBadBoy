@@ -102,7 +102,7 @@
             Controls.Add(labelTerminologi1);
             Name = "Terminologi";
             Size = new Size(755, 389);
-            Load += Terminologi_Load;
+            Load += Terminologi_LoadAsync;
             ResumeLayout(false);
             PerformLayout();
         }
