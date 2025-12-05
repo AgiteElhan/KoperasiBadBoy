@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KoperasiBadBoy.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,10 @@ namespace KoperasiBadBoy.Forms
         public AccessPage()
         {
             InitializeComponent();
+        }
+
+        public AccessPage(Member? loggedMember)
+        {
         }
 
         private void label1_Click(object sender, EventArgs e)

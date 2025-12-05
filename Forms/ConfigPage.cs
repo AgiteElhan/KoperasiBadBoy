@@ -1,7 +1,10 @@
-﻿using System;
+﻿
+using KoperasiBadBoy.Data;
+using KoperasiBadBoy.Models;
+using KoperasiBadBoy.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -32,11 +35,11 @@ namespace KoperasiBadBoy.Forms
             if (config != null)
             {
                 textTerminologi1.Text = config.terminologi1;
-                textTerminologi2.Text = config.terminolog21;
+                textTerminologi2.Text = config.terminologi2;
                 textTerminologi3.Text = config.terminologi3;
                 textExchangeRate.Text = config.exchangeRate.ToString();
                 textInhouseFee.Text = config.transferInhouseFee.ToString();
-                textAcccrossFee.Text = config.transferAccrossFee.ToString();
+                textAcccrossFee.Text = config.transferAcrossFee.ToString();
 
             }
 
@@ -50,7 +53,7 @@ namespace KoperasiBadBoy.Forms
 
             AppDbContext db = new AppDbContext();
             ConfigurationService service = new ConfigurationService(db);
-            await service.add0rUpdate(textTerminologi1.Text, textTerminologi2.Text,textTerminologi3.Text, exchangeRate,inhouseFee, accrossFee);
+            await service.addOrUpdate(textTerminologi1.Text, textTerminologi2.Text,textTerminologi3.Text, exchangeRate,inhouseFee, accrossFee);
             MessageBox.Show("Configuration updated succesfully", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }

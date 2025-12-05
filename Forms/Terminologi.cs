@@ -1,7 +1,9 @@
-﻿using System;
+﻿using KoperasiBadBoy.Data;
+using KoperasiBadBoy.Models;
+using KoperasiBadBoy.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -22,7 +24,7 @@ namespace KoperasiBadBoy.Forms
 
         }
 
-        private void Terminologi_Load(object sender, EventArgs e)
+        private async Task Terminologi_LoadAsync(object sender, EventArgs e)
         {
             AppDbContext db = new AppDbContext();
             ConfigurationService service = new ConfigurationService(db);
@@ -32,11 +34,12 @@ namespace KoperasiBadBoy.Forms
                 labelTerminologi1.Text = configuration.terminologi1;
                 labelTerminologi2.Text = configuration.terminologi2;
                 labelTerminologi3.Text = configuration.terminologi3;
-                labelExchange.Text += " " + configuration.ExchangeRate.ToString();
+                labelExchange.Text += " " + configuration.exchangeRate.ToString();
                 labelInhouse.Text += " " + configuration.transferInhouseFee.ToString();
-                labellAccross.Text += " " + configuration.transferAccrossFee.ToString();
+                labellAccross.Text += " " + configuration.transferAcrossFee.ToString();
             }
         }
 
-        
+
     }
+}

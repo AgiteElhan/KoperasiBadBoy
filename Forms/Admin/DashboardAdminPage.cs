@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KoperasiBadBoy.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,10 @@ namespace KoperasiBadBoy.Forms
         {
             loggedMember = member;
             InitializeComponent();
+        }
+
+        public DashboardAdminPage(Member? loggedMember1)
+        {
         }
 
         private void DashboardAdminPage_Load(object sender, EventArgs e)
