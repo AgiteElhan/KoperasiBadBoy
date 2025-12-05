@@ -81,5 +81,59 @@ namespace KoperasiBadBoy.Forms
                 }
             }
         }
+
+        private void timerBox_Tick(object sender, EventArgs e)
+        {
+            timerBox.Stop();
+            try
+            {
+                //timerInbox.Start();
+                Console.WriteLine("Retrieving...");
+                ConnectorGet connectorGet = new ConnectorGet();
+
+                TransferApiResponse? responseOutgoing = await connectorGet.GetOutgoingByMemberAsync(loggedMember.MemberId);
+                if (responseOutgoing != null && responseOutgoing.ResponseCode == "00")
+                {
+                    dgvOutgoing.DataSource = responseOutgoing.TransferList;
+                    dgvOutgoing.Columns["Id"].Visible = false;
+                    dgvOutgoing.Columns["MemverCode"].Visible = false;
+                    dgvOutgoing.Columns["BenefCode"].HeaderText = "Beneficiary";
+                    dgvOutgoing.Columns["coopCode"].Visible = false;
+                    dgvOutgoing.Columns["updateOn"].Visible = false;
+                    dgvOutgoing.Columns["transferRef"].HeaderText = "Reference";
+                    dgvOutgoing.Columns["transferDate"].HeaderText = "Date";
+                    dgvOutgoing.Columns["Amount"].HeaderText = "Amount";
+                    dgvOutgoing.Columns["Fee"].HeaderText = "Fee";
+                    dgvOutgoing.Columns["Remarks"].HeaderText = "Remarks";
+                    dgvOutgoing.Columns["transactionCode"].HeaderText = "Transaction Code";
+                }
+
+                string benefCode = loggedMember.ReferencedId + "-" + loggedMember.MemberId;
+                TransferApiResponse? responseIncoming = await connectorGet.GetIncomingByMemberAsync(loggedMember.MemberId);
+                if (responseIncoming != null && responseOutgoing.ResponseCode == "00")
+                {
+                    dgvIncoming.DataSource = responseIncoming.TransferList;
+                    dgvIncoming.Columns["Id"].Visible = false;
+                    dgvIncoming.Columns["memberCode"].HeaderText = "Member Code";
+                    dgvIncoming.Columns["BenefCode"].Visible = false;
+                    dgvIncoming.Columns["CoopCode"].Visible = "Coop Code";
+                    dgvIncoming.Columns["updateOn"].Visible = false;
+                    dgvIncoming.Columns["TransferRef"].HeaderText = "Reference";
+                    dgvIncoming.Columns["TransferDate"].HeaderText = "Date";
+                    dgvIncoming.Columns["Amount"].HeaderText = "Amount";
+                    dgvIncoming.Columns["Fee"].HeaderText = "Fee";
+                    dgvIncoming.Columns["Remarks"].HeaderText = "Remarks";
+                    dgvIncoming.Columns["transactionCode"].HeaderText = "Transaction Code";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            finally
+            {
+                timerBox.Start(); // restart setelah selesai
+            }
+        }
     }
 }
