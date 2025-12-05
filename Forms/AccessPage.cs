@@ -24,25 +24,25 @@ namespace KoperasiBadBoy.Forms
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbMember_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Contoh logika ambil data member saat combobox berubah
-            if (comboBox1.SelectedItem != null)
+            if (cbMember.SelectedItem != null)
             {
                 // Misal ambil nama member
-                string selectedMember = comboBox1.SelectedItem.ToString();
-                label3.Text = $"Nama: {selectedMember}";
+                string selectedMember = cbMember.SelectedItem.ToString();
+                labelFullName.Text = $"Nama: {selectedMember}";
             }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Contoh logika: jika item pertama ("Grant All") dicentang, maka semua akan dicentang
-            if (listBox1.GetSelected(0))
+            if (LbGrup.GetSelected(0))
             {
-                for (int i = 1; i < listBox1.Items.Count; i++)
+                for (int i = 1; i < LbGrup.Items.Count; i++)
                 {
-                    listBox1.SetSelected(i, true);
+                    LbGrup.SetSelected(i, true);
                 }
             }
         }
@@ -77,15 +77,15 @@ namespace KoperasiBadBoy.Forms
             try
             {
                 // Misal logika sederhana menyimpan akses member
-                string accessList = string.Join(", ", listBox1.SelectedItems.Cast<string>());
+                string accessList = string.Join(", ", LbGrup.SelectedItems.Cast<string>());
 
-                if (comboBox1.SelectedItem == null)
+                if (cbMember.SelectedItem == null)
                 {
                     MessageBox.Show("Pilih member terlebih dahulu!", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;  
+                    return;
                 }
 
-                string selectedMember = comboBox1.SelectedItem.ToString();
+                string selectedMember = cbMember.SelectedItem.ToString();
 
                 // Simulasi simpan ke database (bisa ganti dengan logika nyata)
                 await Task.Delay(500);
@@ -93,16 +93,21 @@ namespace KoperasiBadBoy.Forms
                 MessageBox.Show($"Akses untuk '{selectedMember}' disimpan:\n{accessList}", "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Bersihkan form setelah submit
-                comboBox1.SelectedIndex = -1;
-                for (int i = 0; i < listBox1.Items.Count; i++)
+                cbMember.SelectedIndex = -1;
+                for (int i = 0; i < LbGrup.Items.Count; i++)
                 {
-                    listBox1.SetSelected(i, false);
+                    LbGrup.SetSelected(i, false);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Terjadi kesalahan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvAccess_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

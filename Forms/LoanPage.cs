@@ -11,6 +11,7 @@ using KoperasiBadBoy.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Reflection.Emit;
 using System.Security.Cryptography;
+using KoperasiBadBoy.Data;
 
 namespace KoperasiBadBoy.Forms
 {

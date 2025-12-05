@@ -78,7 +78,6 @@
             lbl_phone_alt.Size = new Size(73, 20);
             lbl_phone_alt.TabIndex = 4;
             lbl_phone_alt.Text = "Phone Alt";
-            //lbl_phone_alt.Click += label5_Click;
             // 
             // lbl_phone
             // 
@@ -150,7 +149,6 @@
             lbl_joindate.Size = new Size(71, 20);
             lbl_joindate.TabIndex = 12;
             lbl_joindate.Text = "Join Date";
-            //lbl_joindate.Click += label1_Click;
             // 
             // MemberPage
             // 
@@ -170,7 +168,7 @@
             Controls.Add(lbl_member_id);
             Name = "MemberPage";
             Size = new Size(1097, 763);
-            //Load += MemberPage_Load;
+            Load += MemberPage_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -81,7 +81,7 @@
             cbMember.Name = "cbMember";
             cbMember.Size = new Size(151, 28);
             cbMember.TabIndex = 3;
-            cbMember.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            cbMember.SelectedIndexChanged += cbMember_SelectedIndexChanged;
             // 
             // btnSubmit
             // 
@@ -252,6 +252,7 @@
             dgvAccess.RowHeadersWidth = 51;
             dgvAccess.Size = new Size(651, 499);
             dgvAccess.TabIndex = 8;
+            dgvAccess.CellContentClick += dgvAccess_CellContentClick;
             // 
             // txtAccess
             // 

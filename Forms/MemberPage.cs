@@ -67,5 +67,9 @@ namespace KoperasiBadBoy.Forms
 
         public ICollection<MemberPage> Exchanges { get; set; } = new List<MemberPage>();
 
+        private void MemberPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

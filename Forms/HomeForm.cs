@@ -16,5 +16,10 @@ namespace KoperasiBadBoy.Forms
         {
             InitializeComponent();
         }
+
+        private void HomeForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

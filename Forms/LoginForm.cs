@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KoperasiBadBoy.Data;
 
 namespace KoperasiBadBoy.Forms
 
@@ -80,6 +81,11 @@ namespace KoperasiBadBoy.Forms
             this.Hide();
             RegistrationForm form = new RegistrationForm();
             form.ShowDialog();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
