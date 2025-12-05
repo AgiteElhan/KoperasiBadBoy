@@ -143,5 +143,9 @@ namespace KoperasiBadBoy.Forms.Admin
             }
         }
 
+        private void AccrosPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
