@@ -38,7 +38,9 @@
             approvalToolStripMenuItem = new ToolStripMenuItem();
             accrosCooperationToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
+            panelDisplay = new Panel();
             menuStrip1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -61,14 +63,14 @@
             // configurationToolStripMenuItem
             // 
             configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            configurationToolStripMenuItem.Size = new Size(270, 34);
+            configurationToolStripMenuItem.Size = new Size(223, 34);
             configurationToolStripMenuItem.Text = "Configuration";
             configurationToolStripMenuItem.Click += configurationToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(270, 34);
+            logoutToolStripMenuItem.Size = new Size(223, 34);
             logoutToolStripMenuItem.Text = "Logout";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
@@ -105,12 +107,19 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(panelDisplay);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 49);
             panel1.Name = "panel1";
             panel1.Size = new Size(1098, 401);
             panel1.TabIndex = 1;
-            panel1.Paint += panel1_Paint;
+            // 
+            // panelDisplay
+            // 
+            panelDisplay.Location = new Point(0, 3);
+            panelDisplay.Name = "panelDisplay";
+            panelDisplay.Size = new Size(817, 395);
+            panelDisplay.TabIndex = 0;
             // 
             // AdminForm
             // 
@@ -122,8 +131,10 @@
             MainMenuStrip = menuStrip1;
             Name = "AdminForm";
             Text = "AdminForm";
+            Load += AdminForm_Load_1;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -140,5 +151,6 @@
         private ToolStripMenuItem configurationToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem accrosCooperationToolStripMenuItem;
+        private Panel panelDisplay;
     }
 }

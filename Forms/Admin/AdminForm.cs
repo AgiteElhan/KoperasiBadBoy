@@ -15,7 +15,7 @@ namespace KoperasiBadBoy.Forms
     {
         Member? loggedMember = null;
 
-        public AdminForm()
+        public AdminForm(Member member)
         {
             loggedMember = member;
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace KoperasiBadBoy.Forms
             route(new ApprovalPage(loggedMember));
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void AdminForm_Load_1(object sender, EventArgs e)
         {
 
         }
@@ -77,27 +77,5 @@ namespace KoperasiBadBoy.Forms
             route(new AcrossPage());
 
         }
-
-        private void AdminForm_Load(object sender, EventArgs e)
-        {
-            route(new DashboardAdminPage(loggedMember));
-
-        }
-
-        private void accesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            route(new AccessPage(loggedMember));
-        }
-
-        private void productToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            route(new ProductPage());
-        }
-
-        private void approvalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            route(new ApprovalPage(loggedMember));
-        }
-
     }
 }
