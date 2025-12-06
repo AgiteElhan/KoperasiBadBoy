@@ -128,9 +128,7 @@
             label5.Name = "label5";
             label5.Size = new Size(80, 20);
             label5.TabIndex = 8;
-            label5.Text = "BenefiCary";
-            label5.Click += this.label5_Click;
-            // 
+            label5.Text = "BenefiCary";            // 
             // btnSubmit
             // 
             btnSubmit.Location = new Point(132, 381);
