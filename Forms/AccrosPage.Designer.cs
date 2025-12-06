@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -44,6 +45,7 @@
             dgvOutgoing = new DataGridView();
             label6 = new Label();
             label7 = new Label();
+            timerBox = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dgvIncoming).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvOutgoing).BeginInit();
             SuspendLayout();
@@ -129,7 +131,6 @@
             label5.Size = new Size(80, 20);
             label5.TabIndex = 8;
             label5.Text = "BenefiCary";
-            label5.Click += this.label5_Click;
             // 
             // btnSubmit
             // 
@@ -232,5 +233,6 @@
         private DataGridView dgvOutgoing;
         private Label label6;
         private Label label7;
+        private System.Windows.Forms.Timer timerBox;
     }
 }
