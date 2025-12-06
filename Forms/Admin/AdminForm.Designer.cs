@@ -36,8 +36,8 @@
             accesToolStripMenuItem = new ToolStripMenuItem();
             productToolStripMenuItem = new ToolStripMenuItem();
             approvalToolStripMenuItem = new ToolStripMenuItem();
-            panel1 = new Panel();
             accrosCooperationToolStripMenuItem = new ToolStripMenuItem();
+            panel1 = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -83,21 +83,25 @@
             accesToolStripMenuItem.Name = "accesToolStripMenuItem";
             accesToolStripMenuItem.Size = new Size(73, 29);
             accesToolStripMenuItem.Text = "Acces";
-            //accesToolStripMenuItem.Click += accesToolStripMenuItem_Click;
             // 
             // productToolStripMenuItem
             // 
             productToolStripMenuItem.Name = "productToolStripMenuItem";
             productToolStripMenuItem.Size = new Size(90, 29);
             productToolStripMenuItem.Text = "Product";
-            //productToolStripMenuItem.Click += productToolStripMenuItem_Click;
             // 
             // approvalToolStripMenuItem
             // 
             approvalToolStripMenuItem.Name = "approvalToolStripMenuItem";
             approvalToolStripMenuItem.Size = new Size(101, 29);
             approvalToolStripMenuItem.Text = "Approval";
-            //approvalToolStripMenuItem.Click += approvalToolStripMenuItem_Click;
+            // 
+            // accrosCooperationToolStripMenuItem
+            // 
+            accrosCooperationToolStripMenuItem.Name = "accrosCooperationToolStripMenuItem";
+            accrosCooperationToolStripMenuItem.Size = new Size(185, 29);
+            accrosCooperationToolStripMenuItem.Text = "Accros Cooperation";
+            accrosCooperationToolStripMenuItem.Click += accrosCooperationToolStripMenuItem_Click;
             // 
             // panel1
             // 
@@ -106,13 +110,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1098, 401);
             panel1.TabIndex = 1;
-            // 
-            // accrosCooperationToolStripMenuItem
-            // 
-            accrosCooperationToolStripMenuItem.Name = "accrosCooperationToolStripMenuItem";
-            accrosCooperationToolStripMenuItem.Size = new Size(185, 29);
-            accrosCooperationToolStripMenuItem.Text = "Accros Cooperation";
-            accrosCooperationToolStripMenuItem.Click += accrosCooperationToolStripMenuItem_Click;
+            panel1.Paint += panel1_Paint;
             // 
             // AdminForm
             // 
@@ -124,7 +122,6 @@
             MainMenuStrip = menuStrip1;
             Name = "AdminForm";
             Text = "AdminForm";
-            //Load += AdminForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

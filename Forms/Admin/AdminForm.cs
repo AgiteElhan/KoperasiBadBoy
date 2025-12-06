@@ -51,6 +51,11 @@ namespace KoperasiBadBoy.Forms
             route(new ApprovalPage(loggedMember));
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             {
