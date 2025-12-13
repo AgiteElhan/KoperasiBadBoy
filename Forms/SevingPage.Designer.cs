@@ -159,6 +159,7 @@
             cbSavingType.Name = "cbSavingType";
             cbSavingType.Size = new Size(228, 33);
             cbSavingType.TabIndex = 13;
+            cbSavingType.SelectedIndexChanged += cbSavingType_SelectedIndexChanged;
             // 
             // btnBrowseKTP
             // 
@@ -372,6 +373,7 @@
             btnReload.TabIndex = 37;
             btnReload.Text = "Reload";
             btnReload.UseVisualStyleBackColor = true;
+            btnReload.Click += btnReload_Click;
             // 
             // SevingPage
             // 
