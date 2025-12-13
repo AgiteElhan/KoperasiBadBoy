@@ -1,6 +1,6 @@
 ﻿namespace KoperasiBadBoy.Forms
 {
-    partial class AccrosPage
+    partial class AccrosTransferPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -44,6 +45,7 @@
             dgvOutgoing = new DataGridView();
             label6 = new Label();
             label7 = new Label();
+            timerBox = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dgvIncoming).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvOutgoing).BeginInit();
             SuspendLayout();
@@ -128,7 +130,8 @@
             label5.Name = "label5";
             label5.Size = new Size(80, 20);
             label5.TabIndex = 8;
-            label5.Text = "BenefiCary";            // 
+            label5.Text = "BenefiCary";
+            // 
             // btnSubmit
             // 
             btnSubmit.Location = new Point(132, 381);
@@ -137,6 +140,7 @@
             btnSubmit.TabIndex = 10;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // btnClear
             // 
@@ -183,7 +187,11 @@
             label7.TabIndex = 15;
             label7.Text = "Incoming";
             // 
-            // AccrosPage
+            // timerBox
+            // 
+            timerBox.Tick += timerBox_Tick;
+            // 
+            // AccrosTransferPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -203,7 +211,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "AccrosPage";
+            Name = "AccrosTransferPage";
             Size = new Size(1042, 566);
             Load += AccrosPage_Load;
             ((System.ComponentModel.ISupportInitialize)dgvIncoming).EndInit();
@@ -230,5 +238,6 @@
         private DataGridView dgvOutgoing;
         private Label label6;
         private Label label7;
+        private System.Windows.Forms.Timer timerBox;
     }
 }
