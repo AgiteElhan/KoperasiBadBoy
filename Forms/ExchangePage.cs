@@ -36,5 +36,21 @@ namespace KoperasiBadBoy.Forms
         {
 
         }
+
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal amount = Convert.ToDecimal(txtAmount.Text);
+                decimal rate = Convert.ToDecimal(txtRate.Text);
+                decimal fee = Convert.ToDecimal(txtFee.Text);
+                decimal total = (amount * rate) - fee;
+                txtTotal.Text = total.ToString("0.00");
+            }
+            catch (Exception)
+            {
+                txtTotal.Text = "0.00";
+            }
+        }
     }
 }
