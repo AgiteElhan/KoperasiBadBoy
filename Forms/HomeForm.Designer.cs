@@ -28,93 +28,156 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
+            menuHome = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
-            prToolStripMenuItem = new ToolStripMenuItem();
+            dashboardToolStripMenuItem = new ToolStripMenuItem();
+            definitionsToolStripMenuItem = new ToolStripMenuItem();
+            logoutToolStripMenuItem = new ToolStripMenuItem();
+            profileToolStripMenuItem = new ToolStripMenuItem();
             loanToolStripMenuItem = new ToolStripMenuItem();
             savingToolStripMenuItem = new ToolStripMenuItem();
             transferToolStripMenuItem = new ToolStripMenuItem();
+            inhouseToolStripMenuItem = new ToolStripMenuItem();
+            acrossCooperationToolStripMenuItem = new ToolStripMenuItem();
             exchangeToolStripMenuItem = new ToolStripMenuItem();
             historyToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip1.SuspendLayout();
+            panelDisplay = new Panel();
+            menuHome.SuspendLayout();
             SuspendLayout();
             // 
-            // menuStrip1
+            // menuHome
             // 
-            menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, prToolStripMenuItem, loanToolStripMenuItem, savingToolStripMenuItem, transferToolStripMenuItem, exchangeToolStripMenuItem, historyToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(914, 33);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
+            menuHome.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, profileToolStripMenuItem, loanToolStripMenuItem, savingToolStripMenuItem, transferToolStripMenuItem, exchangeToolStripMenuItem, historyToolStripMenuItem });
+            menuHome.Location = new Point(0, 0);
+            menuHome.Name = "menuHome";
+            menuHome.Size = new Size(800, 24);
+            menuHome.TabIndex = 0;
+            menuHome.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
+            fileToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dashboardToolStripMenuItem, definitionsToolStripMenuItem, logoutToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(54, 29);
+            fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.Click += fileToolStripMenuItem_Click;
             // 
-            // prToolStripMenuItem
+            // dashboardToolStripMenuItem
             // 
-            prToolStripMenuItem.Name = "prToolStripMenuItem";
-            prToolStripMenuItem.Size = new Size(78, 29);
-            prToolStripMenuItem.Text = "Profile";
+            dashboardToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
+            dashboardToolStripMenuItem.Size = new Size(137, 22);
+            dashboardToolStripMenuItem.Text = "Dashboard";
+            dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
+            // 
+            // definitionsToolStripMenuItem
+            // 
+            definitionsToolStripMenuItem.Name = "definitionsToolStripMenuItem";
+            definitionsToolStripMenuItem.Size = new Size(137, 22);
+            definitionsToolStripMenuItem.Text = "Terminologi";
+            definitionsToolStripMenuItem.Click += definitionsToolStripMenuItem_Click;
+            // 
+            // logoutToolStripMenuItem
+            // 
+            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            logoutToolStripMenuItem.Size = new Size(137, 22);
+            logoutToolStripMenuItem.Text = "Logout";
+            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
+            // 
+            // profileToolStripMenuItem
+            // 
+            profileToolStripMenuItem.Name = "profileToolStripMenuItem";
+            profileToolStripMenuItem.Size = new Size(53, 20);
+            profileToolStripMenuItem.Text = "Profile";
+            profileToolStripMenuItem.Click += profileToolStripMenuItem_Click;
             // 
             // loanToolStripMenuItem
             // 
             loanToolStripMenuItem.Name = "loanToolStripMenuItem";
-            loanToolStripMenuItem.Size = new Size(66, 29);
+            loanToolStripMenuItem.Size = new Size(45, 20);
             loanToolStripMenuItem.Text = "Loan";
+            loanToolStripMenuItem.Click += loanToolStripMenuItem_Click;
             // 
             // savingToolStripMenuItem
             // 
             savingToolStripMenuItem.Name = "savingToolStripMenuItem";
-            savingToolStripMenuItem.Size = new Size(81, 29);
+            savingToolStripMenuItem.Size = new Size(54, 20);
             savingToolStripMenuItem.Text = "Saving";
             // 
             // transferToolStripMenuItem
             // 
+            transferToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { inhouseToolStripMenuItem, acrossCooperationToolStripMenuItem });
             transferToolStripMenuItem.Name = "transferToolStripMenuItem";
-            transferToolStripMenuItem.Size = new Size(89, 29);
+            transferToolStripMenuItem.Size = new Size(60, 20);
             transferToolStripMenuItem.Text = "Transfer";
+            // 
+            // inhouseToolStripMenuItem
+            // 
+            inhouseToolStripMenuItem.Name = "inhouseToolStripMenuItem";
+            inhouseToolStripMenuItem.Size = new Size(116, 22);
+            inhouseToolStripMenuItem.Text = "Inhouse";
+            // 
+            // acrossCooperationToolStripMenuItem
+            // 
+            acrossCooperationToolStripMenuItem.Name = "acrossCooperationToolStripMenuItem";
+            acrossCooperationToolStripMenuItem.Size = new Size(116, 22);
+            acrossCooperationToolStripMenuItem.Text = "Across";
+            acrossCooperationToolStripMenuItem.Click += acrossCooperationToolStripMenuItem_Click;
             // 
             // exchangeToolStripMenuItem
             // 
             exchangeToolStripMenuItem.Name = "exchangeToolStripMenuItem";
-            exchangeToolStripMenuItem.Size = new Size(102, 29);
+            exchangeToolStripMenuItem.Size = new Size(70, 20);
             exchangeToolStripMenuItem.Text = "Exchange";
+            exchangeToolStripMenuItem.Click += exchangeToolStripMenuItem_Click;
             // 
             // historyToolStripMenuItem
             // 
             historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            historyToolStripMenuItem.Size = new Size(85, 29);
+            historyToolStripMenuItem.Size = new Size(57, 20);
             historyToolStripMenuItem.Text = "History";
+            // 
+            // panelDisplay
+            // 
+            panelDisplay.Location = new Point(0, 27);
+            panelDisplay.Name = "panelDisplay";
+            panelDisplay.Size = new Size(800, 426);
+            panelDisplay.TabIndex = 1;
             // 
             // HomeForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 541);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
+            ClientSize = new Size(800, 450);
+            Controls.Add(panelDisplay);
+            Controls.Add(menuHome);
+            MainMenuStrip = menuHome;
             Name = "HomeForm";
-            Text = "HomeForm";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            Text = "Brave Hero Cooperation";
+            WindowState = FormWindowState.Maximized;
+            Load += HomeForm_Load;
+            menuHome.ResumeLayout(false);
+            menuHome.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private MenuStrip menuStrip1;
+        private MenuStrip menuHome;
         private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem prToolStripMenuItem;
         private ToolStripMenuItem loanToolStripMenuItem;
         private ToolStripMenuItem savingToolStripMenuItem;
         private ToolStripMenuItem transferToolStripMenuItem;
-        private ToolStripMenuItem exchangeToolStripMenuItem;
         private ToolStripMenuItem historyToolStripMenuItem;
+        private ToolStripMenuItem definitionsToolStripMenuItem;
+        private ToolStripMenuItem logoutToolStripMenuItem;
+        private ToolStripMenuItem dashboardToolStripMenuItem;
+        private ToolStripMenuItem inhouseToolStripMenuItem;
+        private ToolStripMenuItem acrossCooperationToolStripMenuItem;
+        private ToolStripMenuItem exchangeToolStripMenuItem;
+        private ToolStripMenuItem profileToolStripMenuItem;
+        private Panel panelDisplay;
     }
 }

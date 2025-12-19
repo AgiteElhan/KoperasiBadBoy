@@ -1,43 +1,41 @@
 ﻿using KoperasiBadBoy.Data;
 using KoperasiBadBoy.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoperasiBadBoy.Services
 {
     public class LoanService
-    {
+    {   
         AppDbContext _db;
-        public LoanService(AppDbContext db)
-        {
+        public LoanService(AppDbContext db) { 
             _db = db;
         }
 
-        public async Task<Loan?> findById(int id)
+        public async Task<Loan?> findById(int id) // search berdasarkan id
         {
             return await _db.Loans.FirstOrDefaultAsync(x => x.Id == id);
+        }
 
+        public List<Loan> findByName(String name) // search berdasarkan id
+        {
+            return _db.Loans.Where(x => x.Member.FullName == name).ToList<Loan>();
         }
 
         public async Task<List<Installment>> LoadInstallmentsGrid(int loanId)
         {
-            return await _db.Installments.Where(x => x.LoanId == loanId)
-            .ToListAsync();
+            return await _db.Installments.Where(x=> x.LoanId == loanId)
+                .ToListAsync();
         }
 
         public async Task<List<Loan>> LoadLoanGrid(int memberId)
         {
             return await _db.Loans
-            .Where(x => x.MemberId == memberId)
-            .OrderByDescending(x => x.CreatedOn).ToListAsync();
+                .Where(x => x.MemberId == memberId)
+                .OrderByDescending(x => x.CreatedOn).ToListAsync();
         }
 
         public async Task saveOrUpdate(Member member, string amount, string ktp,
-            string kk, string slip, string dueDate, string interest,
+            string kk, string slip, string dueDate, string interest, 
             string interestFine, string loanId, string tenor, string adminFee)
         {
             int tenorLeft = int.Parse(tenor);
@@ -101,7 +99,7 @@ namespace KoperasiBadBoy.Services
 
         public async void SetApproval(int id, bool isApprove)
         {
-            Loan? l = await _db.Loans.FirstOrDefaultAsync(x => x.Id == id);
+            Loan? l = await _db.Loans.FirstOrDefaultAsync(x=> x.Id == id);
             if (l != null)
             {
                 l.ApprovedOn = DateTime.UtcNow;
@@ -130,15 +128,15 @@ namespace KoperasiBadBoy.Services
         {
             decimal payment = decimal.Parse(amount);
             int todaysDate = DateTime.UtcNow.Day;
-            Loan? l = await _db.Loans.FirstOrDefaultAsync(x => x.Id == idLoan);
+            Loan? l = await _db.Loans.FirstOrDefaultAsync(x=> x.Id == idLoan);
             if (l != null)
             {
                 if (todaysDate > l.DueDate)
                 {
-                    l.Fine = (l.Amount * l.InterestFine) + l.Fine; 
+                    l.Fine = (l.Amount * l.InterestFine) + l.Fine;
                     l.TotalAmount += l.Fine;
                 }
-
+                
                 l.Outstanding -= payment;
                 l.TotalAmount -= payment;
                 if (l.Outstanding <= 0 && l.TotalAmount > 0)

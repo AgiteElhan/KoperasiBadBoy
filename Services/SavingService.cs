@@ -27,6 +27,13 @@ namespace KoperasiBadBoy.Services
             return _db.Savings.Where(x => x.Member.FullName == name).ToList<Saving>();
         }
 
+        public async Task<List<Saving>> LoadSavingGrid(int memberId)
+        {
+            return await _db.Savings
+                .Where(x => x.MemberId == memberId)
+                .OrderByDescending(x => x.CreatedOn).ToListAsync();
+        }
+
         public async Task saveOrUpdate(Member member, string amount, string ktp,
             string kk, string slip, string dueDate, string interest,
             string interestFine, string savingId, string tenor, string adminFee)
@@ -55,6 +62,30 @@ namespace KoperasiBadBoy.Services
             _db.Savings.Add(l);
             await _db.SaveChangesAsync();
         }
+
+        /*public object LoadApproval()
+        {
+            return _db.Savings.Where(x => x.ApprovedOn == null)
+                .Include(x => x.Member)
+                .OrderByDescending(x => x.CreatedOn)
+                .Select(x => new
+                {
+                    x.Id,
+                    MemberData = x.Member.MemberId + " - " + x.Member.FullName,
+                    JoinDate = x.Member.JoinDate.ToString("f"),
+                    x.SavingId,
+                    x.Amount,
+                    x.Outstanding,
+                    RequestDate = x.CreatedOn.ToString("f"),
+                    x.Tenor,
+                    x.Interest,
+                    Kk = x.KkPath,
+                    Ktp = x.KtpPath,
+                    Slip = x.SlipGajiPath
+                })
+                .ToList();
+        }*/
+
         public async Task<List<Saving>> LoadsApproval()
         {
             return await _db.Savings
@@ -62,13 +93,6 @@ namespace KoperasiBadBoy.Services
                 .Include(x => x.Member)
                 .OrderByDescending(x => x.CreatedOn)
                 .ToListAsync();
-        }
-
-        public async Task<List<Saving>> LoadSavingGrid(int memberId)
-        {
-            return await _db.Savings
-                .Where(x => x.MemberId == memberId)
-                .OrderByDescending(x => x.CreatedOn).ToListAsync();
         }
 
         public async void SetApproval(int id, bool isApprove)
@@ -85,7 +109,7 @@ namespace KoperasiBadBoy.Services
                 await _db.SaveChangesAsync();
             }
         }
-
+        
         public async Task recalculateSaving(int idSaving, string amount)
         {
             decimal payment = decimal.Parse(amount);
@@ -98,9 +122,9 @@ namespace KoperasiBadBoy.Services
                     l.Fine = (l.Amount * l.InterestFine) + l.Fine;
                     l.TotalAmount += l.Fine;
                 }
-
+                
                 l.TotalAmount -= payment;
-
+               
                 _db.Savings.Update(l);
                 await _db.SaveChangesAsync();
             }

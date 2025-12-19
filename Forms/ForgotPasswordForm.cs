@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KoperasiBadBoy.Data;
+using KoperasiBadBoy.Services;
 
 namespace KoperasiBadBoy.Forms
 {
@@ -17,29 +19,29 @@ namespace KoperasiBadBoy.Forms
             InitializeComponent();
         }
 
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+        }
+
         private void ForgotPasswordForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void BtnBack_Click(object sender, EventArgs e)
+        private async void buttonSubmit_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            LoginForm loginform = new LoginForm();
-            loginform.showDialog();
-        }
-
-        private async Task BtnSubmit_Click(object sender, EventArgs e)
-        {
-            using var db = new appDbContext();
+            using var db = new AppDbContext();
             var auth = new AuthService(db);//EA1C1B
-            var password = await auth.ResetPasswordAsync(TxtUsername.Text, TxtFavColor.Text, TxtFavArtist.Text);
-            if (password =="")
+            var password = await auth.ResetPasswordAsync(textUsername.Text, textQuest1.Text, textQuest2.Text);
+            if (password == "")
             {
                 MessageBox.Show("Invalid username or the answer", "Validation Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             } else
             {
-                TxtPassword.Text = password;
+                textPassword.Text = password;
             }
         }
     }

@@ -10,30 +10,26 @@ namespace KoperasiBadBoy.Data
     {
         public DbSet<Member> Members => Set<Member>();
         public DbSet<Access> Accesses => Set<Access>();
-        public DbSet<Configuration> Configs => Set<Configuration>();
-        public DbSet<Loanmaster> Loanmasters => Set<Loanmaster>();
-        public DbSet<Savingmaster> Savingmasters => Set<Savingmaster>();
+        public DbSet<Configuration> Configurations => Set<Configuration>();
+        public DbSet<LoanMaster> LoanMasters => Set<LoanMaster>();
+        public DbSet<SavingMaster> SavingMasters => Set<SavingMaster>();
         public DbSet<Loan> Loans => Set<Loan>();
         public DbSet<Installment> Installments => Set<Installment>();
         public DbSet<Saving> Savings => Set<Saving>();
         public DbSet<Inhouse> Inhouses => Set<Inhouse>();
         public DbSet<Exchange> Exchanges => Set<Exchange>();
         public DbSet<Balance> Balances => Set<Balance>();
+        public DbSet<BalanceHistory> BalanceHistories => Set<BalanceHistory>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            /* var config = new ConfigurationBuilder();
-                .SetBasePath(AppContext.BaseDirectory)
-                .AddJsonFile("appsettings.json")
-                .Build();
-            optionsBuilder.UseNpgsql(config.GetConnectionString("Default")); */
             optionsBuilder.UseNpgsql("Host=103.82.242.90;Port=5434;Database=vb2_badboy;Username=postgres;Password=12Qpalzmxn");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Loan>()
-                .HasOne(l => l.Member) 
+                .HasOne(l => l.Member)
                 .WithMany(m => m.Loans)
                 .HasForeignKey(l => l.MemberId);
 
@@ -67,6 +63,9 @@ namespace KoperasiBadBoy.Data
                 .WithMany(m => m.Exchanges)
                 .HasForeignKey(x => x.MemberId);
 
+            modelBuilder.Entity<BalanceHistory>()
+                .HasNoKey();
+
             foreach (var entity in modelBuilder.Model.GetEntityTypes())
             {
                 var idProp = entity.FindProperty("Id");
@@ -77,7 +76,7 @@ namespace KoperasiBadBoy.Data
                     );
                 }
             }
-            modelBuilder.UseSerialColumns();
+
             base.OnModelCreating(modelBuilder);
         }
     }

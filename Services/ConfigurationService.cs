@@ -1,11 +1,6 @@
 ﻿using KoperasiBadBoy.Data;
 using KoperasiBadBoy.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoperasiBadBoy.Services
 {
@@ -16,23 +11,21 @@ namespace KoperasiBadBoy.Services
 
         public async Task<Configuration?> GetConfig()
         {
-            var config = await _db.Configs.FirstOrDefaultAsync(x => x.Id == 1);
-
+            var config = await _db.Configurations.FirstOrDefaultAsync(x => x.Id == 1);
             return config;
         }
 
-        public async Task addOrUpdate(string terminologi1, string terminologi2,
+        public async Task addOrUpdate(String terminologi1, string terminologi2,
             string terminologi3, decimal exchangeRate, decimal inhouseFee,
             decimal accrossFee)
         {
-            bool isNew = false;
-            var config = await _db.Configs.FirstOrDefaultAsync(x => x.Id == 1);
+            Boolean isNew = false;
+            var config = await _db.Configurations.FirstOrDefaultAsync(x => x.Id == 1);
             if (config == null)
             {
                 isNew = true;
                 config = new Configuration();
             }
-
             config.terminologi1 = terminologi1;
             config.terminologi2 = terminologi2;
             config.terminologi3 = terminologi3;
@@ -48,7 +41,12 @@ namespace KoperasiBadBoy.Services
             {
                 _db.Update(config);
             }
+            await _db.SaveChangesAsync();
+        }
 
+        public async void Update(Configuration config)
+        {
+            _db.Configurations.Update(config);
             await _db.SaveChangesAsync();
         }
     }

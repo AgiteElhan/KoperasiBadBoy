@@ -1,8 +1,8 @@
 ﻿using KoperasiBadBoy.Api.Models;
-using System.Net.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -12,9 +12,9 @@ namespace KoperasiBadBoy.Api.Connectors
     public class ConnectorPost
     {
         private readonly HttpClient _httpClient = new HttpClient();
-        private string _baseUrl = "http://localhost:20254/";
+        private String _baseUrl = "http://103.82.242.90:20254/";
 
-        public async Task<CoopApiResponse> CoopRegistrationAsync(CoopPayload data)
+        public async Task<CoopApiResponse?> CoopRegistrationAsync(CoopPayload data)
         {
             var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
             string json = JsonSerializer.Serialize(data, options);
@@ -32,32 +32,37 @@ namespace KoperasiBadBoy.Api.Connectors
             });
         }
 
-        public async Task<MemberApiResponse> MemberRegistrationAsync(MemberPayload data)
+        public async Task<MemberApiResponse?> MemberRegistrationAsync(MemberPayload data)
         {
-            var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
-            string json = JsonSerializer.Serialize(data, options);
+           
+                var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+                string json = JsonSerializer.Serialize(data, options);
 
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                try {
+                    HttpResponseMessage response = await _httpClient.PostAsync(_baseUrl + "member/save", content);
+                    response.EnsureSuccessStatusCode();
 
-            HttpResponseMessage response = await _httpClient.PostAsync(_baseUrl + "member/save", content);
-            response.EnsureSuccessStatusCode();
+                    string responseJson = await response.Content.ReadAsStringAsync();
 
-            string responseJson = await response.Content.ReadAsStringAsync();
-
-            return JsonSerializer.Deserialize<MemberApiResponse>(responseJson, new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            });
+                    return JsonSerializer.Deserialize<MemberApiResponse>(responseJson, 
+                        new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+                } catch (Exception ex) {
+                    throw new Exception("Error during Member Registration: " + ex.Message);
+                 }
         }
 
-        public async Task<BalanceApiResponse> BalanceUpdateAsync(BalancePayload data)
+        public async Task<BalanceApiResponse?> BalanceUpdateAsync(BalancePayload data)
         {
             var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
             string json = JsonSerializer.Serialize(data, options);
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await _httpClient.PostAsync(_baseUrl + "balance/update", content);
+            HttpResponseMessage response = await _httpClient.PostAsync(_baseUrl + "balance/sync", content);
             response.EnsureSuccessStatusCode();
 
             string responseJson = await response.Content.ReadAsStringAsync();
@@ -68,14 +73,14 @@ namespace KoperasiBadBoy.Api.Connectors
             });
         }
 
-        public async Task<TransferApiResponse> TransferAsync(TransferPayload data)
+        public async Task<TransferApiResponse?> TransferAsync(TransferPayload data)
         {
             var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
             string json = JsonSerializer.Serialize(data, options);
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await _httpClient.PostAsync(_baseUrl + "transfer/save", content);
+            HttpResponseMessage response = await _httpClient.PostAsync(_baseUrl + "/transfer/save", content);
             response.EnsureSuccessStatusCode();
 
             string responseJson = await response.Content.ReadAsStringAsync();

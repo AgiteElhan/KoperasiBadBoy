@@ -8,34 +8,33 @@ namespace KoperasiBadBoy.Api.Models
 {
     public class TransferPayload
     {
-        public string CoopCode { get; set; } = "";
-        public string MemberCode { get; set; } = "";
-        public string BenefCode { get; set; } = "";
-        public double Amount { get; set; }
-        public double Fee { get; set; }
-        public string TransferRef { get; set; } = "";
-        public string Remarks { get; set; } = "";
+       public String coopCode { get; set; } = "";
+        public String memberCode { get; set; } = "";
+        public String benefCode { get; set; } = "";
+        public Double amount { get; set; } 
+        public Double fee { get; set; }
+        public String transferRef { get; set; } = "";
+        public String  remarks { get; set; } = "";
     }
 
-    public class BalancePayload
+    public class  BalancePayload 
     {
-        public string MemberCode { get; set; } = "";
-        public double Amount { get; set; }
+        public String memberCode { get; set; } = "";
+        public Double amount { get; set; }
     }
 
-    public class MemberPayload
+    public class  MemberPayload
     {
-        public string Name { get; set; } = "";
-        public string Address { get; set; } = "";
-        public string Code { get; set; } = "";
-        public string CoopCode { get; set; } = "";
+        public String name { get; set; } = "";
+        public String address { get; set; } = "";
+        public String code { get; set; } = "";
+        public String coopCode { get; set; } = "";
     }
 
     public class CoopPayload
     {
-        public string Name { get; set; } = "";
-        public string Address { get; set; } = "";
-        public string Code { get; set; } = "";
+        public String name { get; set; } = "";
+        public String address { get; set; } = "";
+        public String code { get; set; } = "";
     }
-
 }

@@ -1,56 +1,46 @@
-﻿using KoperasiBadBoy.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using KoperasiBadBoy.Data;
+using KoperasiBadBoy.Models;
+using KoperasiBadBoy.Services;
 
 namespace KoperasiBadBoy.Forms
-
 {
     public partial class LoginForm : Form
     {
         public Member? LoggedInUser { get; private set; }
-
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        public void setSuccessAlert(string message)
+        public void setSuccessAlert(String message)
         {
-            Username_Label.Text = message;
-            Username_Label.Visible = true;
+            labelSuccess.Text = message;
+            labelSuccess.Visible = true;
         }
 
-        private async void btn_Submit_Click(object sender, EventArgs e)
+        private async void buttonSubmit_Click(object sender, EventArgs e)
         {
-            Username_Label.Visible = false;
+            labelSuccess.Visible = false;
             using var db = new AppDbContext();
             var auth = new AuthService(db);
-            var user = await auth.LoginAsync(Username_Label.Text, Username_Label.Text);
+            var user = await auth.LoginAsync(textUsername.Text, textPassword.Text);
             if (user != null)
             {
                 LoggedInUser = user;
                 if (LoggedInUser.level == "admin")
                 {
-                    this.Hide();
+                    this.Hide(); // this = form login
                     AdminForm form = new AdminForm(LoggedInUser);
                     form.ShowDialog();
-                }
-                else
+                } else
                 {
                     AccessService accessService = new AccessService(db);
                     Access access = await accessService.GetAccess(user.Id);
                     if (access == null)
                     {
-                        Username_Label.Text = "YAaahh Gabisa mAsuK (Wkwkwkwk)";
-                        Username_Label.ForeColor = Color.Red;
-                        Username_Label.Visible = true;
+                        labelSuccess.Text = "Access Is Not Granted By Admin!";
+                        labelSuccess.ForeColor = Color.Red;
+                        labelSuccess.Visible = true;
                     }
                     else
                     {
@@ -58,24 +48,24 @@ namespace KoperasiBadBoy.Forms
                         HomeForm form = new HomeForm(LoggedInUser);
                         form.ShowDialog();
                     }
-                }
+                }       
             }
             else
             {
-                Username_Label.Text = "Password SalAHH";
-                Username_Label.ForeColor = Color.Red;
-                Username_Label.Visible = true;
+                labelSuccess.Text = "Invalid Credentials";
+                labelSuccess.ForeColor = Color.Red;
+                labelSuccess.Visible = true;
             }
         }
 
-        private void Reset_Password_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
             ForgotPasswordForm form = new ForgotPasswordForm();
             form.ShowDialog();
         }
 
-        private void btn_Registration_Click(object sender, EventArgs e)
+        private void buttonRegistration_Click(object sender, EventArgs e)
         {
             this.Hide();
             RegistrationForm form = new RegistrationForm();

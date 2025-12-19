@@ -1,42 +1,37 @@
 ﻿using KoperasiBadBoy.Data;
 using KoperasiBadBoy.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KoperasiBadBoy.Services
 {
     public class ProductService
     {
         private AppDbContext _db;
-        public ProductService(AppDbContext db)
-        {
+        public ProductService(AppDbContext db) { 
             _db = db;
         }
 
-        public List<Loanmaster> LoadLoanGrid()
+        public List<LoanMaster> LoadLoanGrid()
         {
-            return _db.Loanmasters.OrderByDescending(x => x.UpdateOn).ToList();
+            return _db.LoanMasters.OrderByDescending(x=> x.UpdateOn).ToList();
         }
 
-        public List<Savingmaster> LoadSavingGrid()
+        public List<SavingMaster> LoadSavingGrid()
         {
-            return _db.Savingmasters.OrderByDescending(x => x.UpdateOn).ToList();
+            return _db.SavingMasters.OrderByDescending(x => x.UpdateOn).ToList();
         }
 
-        public async Task SaveOrUpdateLoan(string id, string adminFee, string name,
-            string fine, string interest, string maxAmount, string minAmount, string tenor)
+        public async Task saveOrUpdateLoan(string id, string adminFee, string name, 
+            string fine, string interest, string maxAmount, string minAmount, 
+            string tenor)
         {
-            Loanmaster lm = new Loanmaster();
+            LoanMaster? lm = new LoanMaster();
             bool isNew = true;
             if (id != null && id.Trim() != "" && id.Trim() != "...")
             {
                 isNew = false;
                 int idLoanMaster = int.Parse(id);
-                lm = _db.Loanmasters.FirstOrDefault(lm => lm.Id == idLoanMaster);
+                lm = _db.LoanMasters.FirstOrDefault(lm => lm.Id == idLoanMaster);
             }
 
             lm.UpdateOn = DateTime.UtcNow;
@@ -46,26 +41,27 @@ namespace KoperasiBadBoy.Services
             lm.MaxAmount = decimal.Parse(maxAmount);
             lm.MinAmount = decimal.Parse(minAmount);
             lm.Name = name;
-            lm.Description = ".";
+            lm.Description = "-";
             lm.Tenor = int.Parse(tenor);
 
             if (isNew)
-                _db.Loanmasters.Add(lm);
+                _db.LoanMasters.Add(lm);
             else
-                _db.Loanmasters.Update(lm);
+                _db.LoanMasters.Update(lm);
             await _db.SaveChangesAsync();
         }
 
-        public async Task SaveOrUpdateSaving(string id, string adminFee, string name,
-            string fine, string interest, string maxAmount, string minAmount, string tenor)
+        public async Task saveOrUpdateSaving(string id, string adminFee, string name,
+            string fine, string interest, string maxAmount, string minAmount,
+            string tenor)
         {
-            Savingmaster sm = new Savingmaster();
+            SavingMaster? sm = new SavingMaster();
             bool isNew = true;
             if (id != null && id.Trim() != "" && id.Trim() != "...")
             {
                 isNew = false;
                 int idSavingMaster = int.Parse(id);
-                sm = _db.Savingmasters.FirstOrDefault(lm => lm.Id == idSavingMaster);
+                sm = _db.SavingMasters.FirstOrDefault(lm => lm.Id == idSavingMaster);
             }
 
             sm.UpdateOn = DateTime.UtcNow;
@@ -75,30 +71,49 @@ namespace KoperasiBadBoy.Services
             sm.MaxAmount = decimal.Parse(maxAmount);
             sm.MinAmount = decimal.Parse(minAmount);
             sm.Name = name;
-            sm.Description = ".";
+            sm.Description = "-";
             sm.Tenor = int.Parse(tenor);
 
             if (isNew)
-                _db.Savingmasters.Add(sm);
+                _db.SavingMasters.Add(sm);
             else
-                _db.Savingmasters.Update(sm);
+                _db.SavingMasters.Update(sm);
             await _db.SaveChangesAsync();
         }
 
-        public async Task<Loanmaster?> FindLoanById(int id)
+        public async Task<LoanMaster?> findLoanById(int id)
         {
-            return await _db.Loanmasters.FirstOrDefaultAsync(lm => lm.Id == id);
-
+            return await _db.LoanMasters.FirstOrDefaultAsync(lm => lm.Id == id);
         }
 
-        public async Task<Savingmaster?> FindSavingById(int id)
+        public async Task<SavingMaster?> findSavingById(int id)
         {
-            return await _db.Savingmasters.FirstOrDefaultAsync(lm => lm.Id == id);
+            return await _db.SavingMasters.FirstOrDefaultAsync(lm => lm.Id == id);
         }
 
         public object SetDropDownLoan()
         {
-            var data = _db.Loanmasters.OrderBy(x => x.Name)
+            var data = _db.LoanMasters.OrderBy(x=> x.Name)
+                .Select( x=> new
+                {
+                    x.Id,
+                    DisplayName = x.Name + ", t:" + x.Tenor + "(" +x.Interest + ")"
+                }).ToList();
+
+            var result = new List<object>
+            {
+                new { Id = 0, DisplayName = "--choose--" }
+            };
+
+            // Gabungkan data asli
+            result.AddRange(data);
+
+            return result;
+        }
+
+        public object SetDropDownSaving()
+        {
+            var data = _db.SavingMasters.OrderBy(x => x.Name)
                 .Select(x => new
                 {
                     x.Id,

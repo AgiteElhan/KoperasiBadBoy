@@ -37,7 +37,7 @@ namespace KoperasiBadBoy.Migrations
                     b.Property<int>("MemberId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("UpdateOn")
+                    b.Property<DateTime>("updateOn")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
@@ -78,6 +78,11 @@ namespace KoperasiBadBoy.Migrations
                     b.ToTable("Balances");
                 });
 
+            modelBuilder.Entity("KoperasiBadBoy.Models.BalanceHistory", b =>
+                {
+                    b.ToTable("BalanceHistories");
+                });
+
             modelBuilder.Entity("KoperasiBadBoy.Models.Configuration", b =>
                 {
                     b.Property<int>("Id")
@@ -112,7 +117,7 @@ namespace KoperasiBadBoy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Configs");
+                    b.ToTable("Configurations");
                 });
 
             modelBuilder.Entity("KoperasiBadBoy.Models.Exchange", b =>
@@ -197,11 +202,11 @@ namespace KoperasiBadBoy.Migrations
 
             modelBuilder.Entity("KoperasiBadBoy.Models.Installment", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
 
                     b.Property<int>("LoanId")
                         .HasColumnType("integer");
@@ -215,7 +220,7 @@ namespace KoperasiBadBoy.Migrations
                     b.Property<decimal>("amount")
                         .HasColumnType("numeric");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.HasIndex("LoanId");
 
@@ -296,7 +301,7 @@ namespace KoperasiBadBoy.Migrations
                     b.ToTable("Loans");
                 });
 
-            modelBuilder.Entity("KoperasiBadBoy.Models.Loanmaster", b =>
+            modelBuilder.Entity("KoperasiBadBoy.Models.LoanMaster", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -335,7 +340,7 @@ namespace KoperasiBadBoy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Loanmasters");
+                    b.ToTable("LoanMasters");
                 });
 
             modelBuilder.Entity("KoperasiBadBoy.Models.Member", b =>
@@ -369,10 +374,6 @@ namespace KoperasiBadBoy.Migrations
                     b.Property<DateTime>("JoinDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Level")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("MemberId")
                         .IsRequired()
                         .HasColumnType("text");
@@ -392,24 +393,29 @@ namespace KoperasiBadBoy.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Quest1")
+                    b.Property<string>("ReferenceId")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<string>("Quest2")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<int>("ReferenceId")
-                        .HasColumnType("integer");
+                        .HasColumnType("text");
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("level")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("quest1")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("quest2")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
@@ -427,8 +433,20 @@ namespace KoperasiBadBoy.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
 
+                    b.Property<decimal>("AdminFee")
+                        .HasColumnType("numeric");
+
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
+
+                    b.Property<DateTime?>("ApprovedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("DueDate")
+                        .HasColumnType("integer");
 
                     b.Property<decimal>("Fine")
                         .HasColumnType("numeric");
@@ -439,6 +457,15 @@ namespace KoperasiBadBoy.Migrations
                     b.Property<decimal>("InterestFine")
                         .HasColumnType("numeric");
 
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("KkPath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("KtpPath")
+                        .HasColumnType("text");
+
                     b.Property<int>("MemberId")
                         .HasColumnType("integer");
 
@@ -447,6 +474,14 @@ namespace KoperasiBadBoy.Migrations
 
                     b.Property<int>("SavingId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("SlipGajiPath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
 
                     b.Property<DateTime>("TargetDate")
                         .HasColumnType("timestamp with time zone");
@@ -470,7 +505,7 @@ namespace KoperasiBadBoy.Migrations
                     b.ToTable("Savings");
                 });
 
-            modelBuilder.Entity("KoperasiBadBoy.Models.Savingmaster", b =>
+            modelBuilder.Entity("KoperasiBadBoy.Models.SavingMaster", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -509,7 +544,7 @@ namespace KoperasiBadBoy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Savingmasters");
+                    b.ToTable("SavingMasters");
                 });
 
             modelBuilder.Entity("KoperasiBadBoy.Models.Access", b =>

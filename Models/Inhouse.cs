@@ -16,7 +16,7 @@ namespace KoperasiBadBoy.Models
         public Member Destination { get; set; }
         public decimal Amount { get; set; }
         public decimal Fee { get; set; }
-        public string Remarks { get; set; }
+        public string Remarks {  get; set; }
         public DateTime TransferDate { get; set; }
         public string TransferId { get; set; }
     }

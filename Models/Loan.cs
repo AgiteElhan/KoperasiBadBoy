@@ -23,15 +23,16 @@ namespace KoperasiBadBoy.Models
         public decimal InterestFine { get; set; }
         public decimal Tenor { get; set; }
         public int DueDate { get; set; }
-        public decimal TotalAmount { get; set; }
+        [Required] public decimal TotalAmount { get; set; }
         public bool IsApproved { get; set; } = false;
         public DateTime? ApprovedOn { get; set; }
-        public decimal AdminFee { get; set; }
+        public decimal AdminFee {  get; set; }
 
         public string? KtpPath { get; set; }
         public string? KkPath { get; set; }
         public string? SlipGajiPath { get; set; }
 
         public ICollection<Installment> Installments { get; set; } = new List<Installment>();
+
     }
 }

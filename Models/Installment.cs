@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,10 @@ namespace KoperasiBadBoy.Models
 {
     public class Installment
     {
-        public int id {  get; set; }
-        public int LoanId { get; set; }
+        public int Id { get; set; }
+        [Required] public int LoanId { get; set; }
         public Loan Loan { get; set; }
-        public decimal amount { get; set; }
+        [Required] public decimal amount { get; set; }
         public DateTime PaymentDate { get; set; } = DateTime.UtcNow;
         public string? ProofPath { get; set; }
     }
