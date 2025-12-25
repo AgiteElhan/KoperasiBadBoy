@@ -47,8 +47,8 @@ namespace KoperasiBadBoy.Forms.AdminMenus
                     {
                         CoopApiResponse? coopApiResponse = await connectorPost.CoopRegistrationAsync(
                             new CoopPayload {
-                                name = "Brave Hero Cooperation",
-                                address = "Jakarta",
+                                name = "Koperasi BadBoy",
+                                address = "Tangerang",
                                 code = ""
                             });
 
