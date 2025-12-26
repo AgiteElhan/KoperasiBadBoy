@@ -45,7 +45,7 @@ namespace KoperasiBadBoy.Forms.MemberMenus
             } else
             {
                 labelMyBenef.Text = "My Benef: " + loadMyBenef();
-                timerInbox.Enabled = true;
+                //timerInbox.Enabled = true;
             }
         }
 
@@ -119,7 +119,7 @@ namespace KoperasiBadBoy.Forms.MemberMenus
                 transferRef = textTransRef.Text,
             });
 
-            if (response != null && response.ResponseCode == "00")
+            /* if (response != null && response.ResponseCode == "00")
             {
                 BalanceService balanceService = new BalanceService(db);
                 Balance? balance = await balanceService.getBalance(loggedMember.MemberId);
@@ -142,7 +142,7 @@ namespace KoperasiBadBoy.Forms.MemberMenus
                         MessageBox.Show("Transfer Successful", "Success");
                     }
                 }
-            }
+            } */
         }
 
         private async void timerInbox_Tick(object sender, EventArgs e)

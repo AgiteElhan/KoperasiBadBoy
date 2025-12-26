@@ -80,10 +80,18 @@ namespace KoperasiBadBoy.Api.Connectors
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await _httpClient.PostAsync(_baseUrl + "/transfer/save", content);
-            response.EnsureSuccessStatusCode();
+            var requestUrl = $"{_baseUrl.TrimEnd('/')}/transfer/save";
 
-            string responseJson = await response.Content.ReadAsStringAsync();
+            HttpResponseMessage response = await _httpClient.PostAsync(requestUrl, content);
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("HTTP Success: " + response.StatusCode);
+            } else
+            {
+                MessageBox.Show("HTTP Error: " + response.StatusCode);
+            }// perlu handle disini
+
+                string responseJson = await response.Content.ReadAsStringAsync();
 
             return JsonSerializer.Deserialize<TransferApiResponse>(responseJson, new JsonSerializerOptions
             {
