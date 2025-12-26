@@ -37,7 +37,7 @@ namespace KoperasiBadBoy.Services
             return await _db.Balances.FirstOrDefaultAsync(b => b.MemberCode == memberCode);
         }
 
-        public async void Update(Balance balance)
+        public async Task Update(Balance balance)
         {
             _db.Balances.Update(balance);
             await _db.SaveChangesAsync();
